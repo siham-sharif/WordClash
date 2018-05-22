@@ -1,0 +1,119 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class MenuFrame extends JFrame {
+
+    public JFrame menuFrame = new JFrame("Menu");
+    public Font font = new Font("Matura MT Script Capitals",Font.BOLD,20);
+
+    public JButton newGameBtn, rankListBtn, optionBtn, helpBtn, creditBtn, exitBtn;
+
+    public JButton beginnerBtn, easyBtn, mediumBtn, hardBtn, profBtn;
+    public JButton backBtn;
+
+
+    public MenuFrame(){
+
+        // setting menu frame basic parameter
+        menuFrame.setResizable(false);
+        menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menuFrame.setVisible(true);
+        menuFrame.setBounds(100,100, 500, 600);
+        menuFrame.setLayout(null);
+
+        menuFrame.getContentPane().setBackground(Color.darkGray);
+
+        // new game button
+        newGameBtn = new JButton("New Game");
+        newGameBtn.setBounds(100,100,300,50);
+        newGameBtn.setBackground(Color.WHITE);
+        newGameBtn.setFont(font);
+
+        menuFrame.add(newGameBtn);
+
+        // Buttons under new game sections
+        // beginner button
+        beginnerBtn = new JButton("Beginner");
+        beginnerBtn.setBounds(160,100,200,50);
+        beginnerBtn.setBackground(Color.WHITE);
+        beginnerBtn.setFont(font);
+
+        // easy button
+        easyBtn = new JButton("Easy");
+        easyBtn.setBounds(160,160,200,50);
+        easyBtn.setBackground(Color.WHITE);
+        easyBtn.setFont(font);
+
+        // medium button
+        mediumBtn = new JButton("Medium");
+        mediumBtn.setBounds(160,220,200,50);
+        mediumBtn.setBackground(Color.WHITE);
+        mediumBtn.setFont(font);
+
+        // hard button
+        hardBtn = new JButton("Hard");
+        hardBtn.setBounds(160,280,200,50);
+        hardBtn.setBackground(Color.WHITE);
+        hardBtn.setFont(font);
+
+        // proffesional button
+        profBtn = new JButton("Professional");
+        profBtn.setBounds(160,340,200,50);
+        profBtn.setBackground(Color.WHITE);
+        profBtn.setFont(font);
+
+        // back button
+        backBtn = new JButton("Back");
+        backBtn.setBounds(160,400,200,50);
+        backBtn.setBackground(Color.WHITE);
+        backBtn.setFont(font);
+
+        // Rank List Button
+        rankListBtn = new JButton("Rank List");
+        rankListBtn.setBounds(100, 160, 300, 50);
+        rankListBtn.setBackground(Color.WHITE);
+        rankListBtn.setFont(font);
+
+        menuFrame.add(rankListBtn);
+
+        //p2 = new JPanel();
+        //p2.setBackground(Color.darkGray);
+
+        //
+        optionBtn =new JButton("Option");
+        optionBtn.setBounds(100, 220, 300, 50);
+        optionBtn.setBackground(Color.WHITE);
+        optionBtn.setFont(font);
+        menuFrame.add(optionBtn);
+
+
+        helpBtn=new JButton("Help");
+        helpBtn.setBounds(100, 280, 300, 50);
+        helpBtn.setBackground(Color.WHITE);
+        helpBtn.setFont(font);
+        menuFrame.add(helpBtn);
+
+        //p3 = new JPanel();
+        //p3.setBackground(Color.green);
+
+        // credit button
+        creditBtn=new JButton("Credit's");
+        creditBtn.setBounds(100, 340, 300, 50);
+        creditBtn.setBackground(Color.WHITE);
+        creditBtn.setFont(font);
+
+        menuFrame.add(creditBtn);
+
+
+        // exit button
+        exitBtn=new JButton("Exit");
+        exitBtn.setBounds(100, 400, 300, 50);
+        exitBtn.setBackground(Color.WHITE);
+        exitBtn.setFont(font);
+        menuFrame.add(exitBtn);
+
+    }
+
+
+
+}

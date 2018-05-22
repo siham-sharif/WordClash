@@ -42,12 +42,13 @@ public class DbLayer {
                     statement.close();
                     connection.close();
 
-                    //new GameDemo();
+                    new MenuFrame();
 
                 }
                 else{
 
-                    //new GameDemo()
+                    // calling menu
+                    new MenuFrame();
                 }
             }
 

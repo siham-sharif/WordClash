@@ -57,6 +57,9 @@ public class LoginPage extends JFrame{
             DbLayer dbObject = new DbLayer();
             dbObject.checkLogin(playerNameTextField.getText());
 
+            // set visibility off
+            loginFrame.setVisible(false);
+
         }
     }
 
