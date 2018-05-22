@@ -42,14 +42,16 @@ public class LoginPage extends JFrame{
         loginFrame.add(playerNameTextField);
         loginFrame.add(submitButton);
 
-
+        userVerification submitButtonClicked = new userVerification();
+        submitButton.addActionListener(submitButtonClicked);
 
     }
 
     public class userVerification implements ActionListener{
 
         @Override
-        public void actionPerformed (ActionEvent submit) {
+        public void actionPerformed (ActionEvent submitButtonClicked) {
+            System.out.println("Clicked on Submit button in login page");
             Toolkit.getDefaultToolkit().beep();
 
         }

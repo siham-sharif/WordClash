@@ -38,9 +38,9 @@ public class ImageInFrame extends JFrame{
 
     public void splashTimer()
     {
-        int counter = 0;
+        int counter = 1;
         TimeClass timeClass = new TimeClass(counter);
-        Timer timer = new Timer(1000, timeClass);
+        timer = new Timer(1000, timeClass);
         timer.start();
 
     }
@@ -61,7 +61,9 @@ public class ImageInFrame extends JFrame{
             if(counter<=0){
                 jFrame.setVisible(false);
                 new LoginPage();
-                timer.stop();
+                if(timer.isRunning()){
+                    timer.stop();
+                }
             }
         }
     }
