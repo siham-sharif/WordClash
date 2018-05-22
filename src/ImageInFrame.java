@@ -1,16 +1,20 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 public class ImageInFrame extends JFrame{
 
-    public JFrame jFrame = new JFrame();
+    public Timer timer;
+
+    public JFrame jFrame = new JFrame("Word Clash");
 
     public ImageInFrame() throws IOException{
 
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 
         String splashPathDir = System.getProperty("user.dir");
@@ -22,10 +26,44 @@ public class ImageInFrame extends JFrame{
 
         JLabel splashLabel = new JLabel(new ImageIcon(splashImage));
 
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.getContentPane().add(splashLabel);
-        jFrame.setLocation(100,100);
+
+
+        jFrame.setSize(350,500);
         jFrame.setVisible(true);
 
+        splashTimer();
+    }
+
+    public void splashTimer()
+    {
+        int counter = 0;
+        TimeClass timeClass = new TimeClass(counter);
+        Timer timer = new Timer(1000, timeClass);
+        timer.start();
+
+    }
+
+    public class TimeClass implements ActionListener{
+        int counter;
+
+        public TimeClass(int counter){
+            this.counter = counter;
+        }
+
+
+        @Override
+        public void actionPerformed (ActionEvent e)
+        {
+            counter--;
+
+            if(counter<=0){
+                jFrame.setVisible(false);
+                new LoginPage();
+                timer.stop();
+            }
+        }
     }
 
 }
