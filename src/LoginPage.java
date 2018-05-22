@@ -51,8 +51,11 @@ public class LoginPage extends JFrame{
 
         @Override
         public void actionPerformed (ActionEvent submitButtonClicked) {
-            System.out.println("Clicked on Submit button in login page");
+            //System.out.println("Clicked on Submit button in login page");
             Toolkit.getDefaultToolkit().beep();
+
+            DbLayer dbObject = new DbLayer();
+            dbObject.checkLogin(playerNameTextField.getText());
 
         }
     }
