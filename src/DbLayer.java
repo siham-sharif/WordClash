@@ -5,7 +5,7 @@ public class DbLayer {
 
     public String url = "jdbc:mysql://127.0.0.1:3306/wordclash_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
     public String user = "root";
-    public String pass = "therap";
+    public String pass = "therap123";
     public Connection connection;
 
     public Statement statement;
@@ -60,6 +60,5 @@ public class DbLayer {
         }
 
     }
-
 
 }

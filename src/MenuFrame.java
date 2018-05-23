@@ -1,3 +1,5 @@
+import sun.management.jdp.JdpGenericPacket;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,8 @@ public class MenuFrame extends JFrame {
 
     public JButton beginnerBtn, easyBtn, mediumBtn, hardBtn, profBtn;
     public JButton backBtn;
+
+    public JFrame gameStageFrame = new JFrame("Game Stages");
 
 
     public MenuFrame(){
@@ -122,6 +126,17 @@ public class MenuFrame extends JFrame {
 
         rankListEvent rankListBtnClicked = new rankListEvent();
         rankListBtn.addActionListener(rankListBtnClicked);
+
+
+        // working with stages
+        newGameStarter newGameBtnClicked = new newGameStarter();
+        newGameBtn.addActionListener(newGameBtnClicked);
+
+        //easy button event
+        beginnerLevel beginnerBtnClicked = new beginnerLevel();
+        beginnerBtn.addActionListener(beginnerBtnClicked);
+
+
     }
 
     // exit event
@@ -160,4 +175,35 @@ public class MenuFrame extends JFrame {
         }
     }
 
+    public class newGameStarter implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            // game stage frame basic skeleton
+            gameStageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            gameStageFrame.getContentPane().setBackground(Color.DARK_GRAY);
+            gameStageFrame.setResizable(false);
+            gameStageFrame.setLayout(null);
+            gameStageFrame.setBounds(100,100,500,600);
+            gameStageFrame.setVisible(true);
+            menuFrame.setVisible(false);
+
+            // adding level button
+            gameStageFrame.add(easyBtn);
+            gameStageFrame.add(mediumBtn);
+            gameStageFrame.add(hardBtn);
+
+        }
+    }
+
+    public class beginnerLevel implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Beginner Button Clicked");
+            new BeginnerLevel();
+            menuFrame.setVisible(false);
+            gameStageFrame.setVisible(false);
+
+        }
+    }
 }

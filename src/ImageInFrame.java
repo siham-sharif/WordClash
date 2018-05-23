@@ -30,7 +30,7 @@ public class ImageInFrame extends JFrame{
         jFrame.getContentPane().add(splashLabel);
 
 
-        jFrame.setSize(350,500);
+        jFrame.setSize(500,600);
         jFrame.setVisible(true);
 
         splashTimer();
