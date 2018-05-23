@@ -130,7 +130,7 @@ public class MenuFrame extends JFrame {
     public class creditEvent implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            // new Credits();
+            new Credits();
             menuFrame.setVisible(false);
         }
     }
