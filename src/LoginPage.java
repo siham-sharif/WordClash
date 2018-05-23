@@ -59,7 +59,6 @@ public class LoginPage extends JFrame{
 
             // set visibility off
             loginFrame.setVisible(false);
-
         }
     }
 
