@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MenuFrame extends JFrame {
 
@@ -76,25 +78,21 @@ public class MenuFrame extends JFrame {
 
         menuFrame.add(rankListBtn);
 
-        //p2 = new JPanel();
-        //p2.setBackground(Color.darkGray);
-
         //
         optionBtn =new JButton("Option");
         optionBtn.setBounds(100, 220, 300, 50);
         optionBtn.setBackground(Color.WHITE);
         optionBtn.setFont(font);
+
         menuFrame.add(optionBtn);
 
-
+        // help button
         helpBtn=new JButton("Help");
         helpBtn.setBounds(100, 280, 300, 50);
         helpBtn.setBackground(Color.WHITE);
         helpBtn.setFont(font);
-        menuFrame.add(helpBtn);
 
-        //p3 = new JPanel();
-        //p3.setBackground(Color.green);
+        menuFrame.add(helpBtn);
 
         // credit button
         creditBtn=new JButton("Credit's");
@@ -104,7 +102,6 @@ public class MenuFrame extends JFrame {
 
         menuFrame.add(creditBtn);
 
-
         // exit button
         exitBtn=new JButton("Exit");
         exitBtn.setBounds(100, 400, 300, 50);
@@ -112,8 +109,30 @@ public class MenuFrame extends JFrame {
         exitBtn.setFont(font);
         menuFrame.add(exitBtn);
 
+        // adding listeners to buttons
+
+        exitEvent exitBtnClicked = new exitEvent();
+        exitBtn.addActionListener(exitBtnClicked);
+
+        creditEvent creditBtnClicked = new creditEvent();
+        creditBtn.addActionListener(creditBtnClicked);
     }
 
+    // exit event
+    public class exitEvent implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.exit(0);
+        }
+    }
 
+    // credit event
+    public class creditEvent implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // new Credits();
+            menuFrame.setVisible(false);
+        }
+    }
 
 }
