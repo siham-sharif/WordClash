@@ -119,6 +119,9 @@ public class MenuFrame extends JFrame {
 
         helpEvent helpBtnClicked = new helpEvent();
         helpBtn.addActionListener(helpBtnClicked);
+
+        rankListEvent rankListBtnClicked = new rankListEvent();
+        rankListBtn.addActionListener(rankListBtnClicked);
     }
 
     // exit event
@@ -143,6 +146,16 @@ public class MenuFrame extends JFrame {
         @Override
         public void actionPerformed (ActionEvent e) {
             new Help();
+            menuFrame.setVisible(false);
+        }
+    }
+
+    // rank list event
+    public class rankListEvent implements ActionListener{
+
+        @Override
+        public void actionPerformed (ActionEvent e) {
+            new RankList();
             menuFrame.setVisible(false);
         }
     }
