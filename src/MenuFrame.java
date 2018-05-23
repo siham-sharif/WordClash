@@ -116,6 +116,9 @@ public class MenuFrame extends JFrame {
 
         creditEvent creditBtnClicked = new creditEvent();
         creditBtn.addActionListener(creditBtnClicked);
+
+        helpEvent helpBtnClicked = new helpEvent();
+        helpBtn.addActionListener(helpBtnClicked);
     }
 
     // exit event
@@ -131,6 +134,15 @@ public class MenuFrame extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             new Credits();
+            menuFrame.setVisible(false);
+        }
+    }
+
+    // help event
+    public class helpEvent implements ActionListener{
+        @Override
+        public void actionPerformed (ActionEvent e) {
+            new Help();
             menuFrame.setVisible(false);
         }
     }
