@@ -18,15 +18,10 @@ public class Help extends JFrame{
         // basic skeleton of credit frame
         helpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         helpFrame.setSize(500,600);
-        helpFrame.setTitle("Credit's");
         helpFrame.setVisible(true);
         helpFrame.setResizable(false);
 
-        // ****************************
-        // practise Jlabel and Jpanel
-        // ****************************
-
-        creditsPanel = new JPanel(new BorderLayout()); // whats happening ???
+        creditsPanel = new JPanel(new BorderLayout());
 
         creditWordsLabel = new JLabel();
         creditWordsLabel.setText("Help Text");

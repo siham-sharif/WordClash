@@ -15,14 +15,14 @@ public class LoginPage extends JFrame{
 
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.getContentPane().setBackground(Color.darkGray);
-        loginFrame.setSize(350,500);
+        loginFrame.setSize(500,600);
         loginFrame.setVisible(true);
         loginFrame.setLayout(null);
 
         Font playerNameFont = new Font("Matura MT Script Capitals",Font.BOLD,20);
 
         playerNameLabel = new JLabel("Player Name");
-        playerNameLabel.setBounds(150,150,200,100);
+        playerNameLabel.setBounds(100,150,200,100);
         playerNameLabel.setForeground(Color.LIGHT_GRAY);
         playerNameLabel.setFont(playerNameFont);
 
@@ -32,7 +32,7 @@ public class LoginPage extends JFrame{
         playerNameTextField.setFont(playerNameFont);
 
         submitButton = new JButton("Submit");
-        submitButton.setBounds(150,340,150,50);
+        submitButton.setBounds(125,340,150,50);
         submitButton.setBackground(Color.WHITE);
         submitButton.setForeground(Color.BLACK);
         submitButton.setFont(playerNameFont);
@@ -51,8 +51,7 @@ public class LoginPage extends JFrame{
 
         @Override
         public void actionPerformed (ActionEvent submitButtonClicked) {
-            //System.out.println("Clicked on Submit button in login page");
-            Toolkit.getDefaultToolkit().beep();
+            System.out.println("Clicked on Submit button in login page");
 
             DbLayer dbObject = new DbLayer();
             dbObject.checkLogin(playerNameTextField.getText());

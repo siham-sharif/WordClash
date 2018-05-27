@@ -3,9 +3,10 @@ import java.sql.*;
 
 public class DbLayer {
 
-    public String url = "jdbc:mysql://127.0.0.1:3306/wordclash_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+    public String url = "jdbc:mysql://localhost:3306/wordclash_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+    //public String url = "jdbc:mysql://localhost:3306/wordclash_db";
     public String user = "root";
-    public String pass = "therap123";
+    public String pass = "therap";
     public Connection connection;
 
     public Statement statement;
@@ -19,26 +20,29 @@ public class DbLayer {
             connection = DriverManager.getConnection(url, user, pass);
 
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM user");
+            resultSet = statement.executeQuery("SELECT user_name FROM user");
 
-            while(resultSet.next()){
+            while(resultSet.next()) {
                 String userName = (String) resultSet.getString("user_name");
-                if(userName.equals(inputFromUser) || (userName.equals(inputFromUser.toLowerCase())));
+                if (userName.equals(inputFromUser) || (userName.equals(inputFromUser.toLowerCase())))
                 {
                     userExists = true;
-                    if(userExists){
+                    if (userExists) {
                         System.out.println("User exists in Database");
                     }
                 }
+                else
+                    userExists = false;
+            }
 
                 if(!userExists){
 
                     System.out.println("No user found in DB\n Creating user");
 
-                    String intialScore = "0";
-                    String initialUserInsertQuery = "INSERT INTO user(user_name,score) VALUES ('"+inputFromUser+"', '"+intialScore+"')";
+                    String initialScore = "0";
+                    String initialUserInsertQuery = "INSERT INTO user(user_name,score) VALUES ('"+inputFromUser+"', '"+initialScore+"')";
 
-                    statement.executeQuery(initialUserInsertQuery);
+                    statement.executeUpdate(initialUserInsertQuery);
                     statement.close();
                     connection.close();
 
@@ -50,7 +54,7 @@ public class DbLayer {
                     // calling menu
                     new MenuFrame();
                 }
-            }
+
 
 
 

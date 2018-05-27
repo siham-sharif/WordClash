@@ -17,22 +17,17 @@ public class Credits extends JFrame {
         // basic skeleton of credit frame
         creditFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         creditFrame.setSize(500,600);
-        creditFrame.setTitle("Credit's");
         creditFrame.setVisible(true);
         creditFrame.setResizable(false);
 
-        // ****************************
-        // practise Jlabel and Jpanel
-        // ****************************
-
-        creditsPanel = new JPanel(new BorderLayout()); // whats happening ???
+        creditsPanel = new JPanel(new BorderLayout());
 
         creditWordsLabel = new JLabel();
         creditWordsLabel.setText("<html>"
                 + "<h2>Team Details: </h2>"
                 + "<h2>Siham Sharif</h2>"
                 + "<h2>Reg No : 2009331049</h2>"
-                + "<h2>Noor Md Nadim Hossain</h2>"
+                + "<h2>Noor Mohammed Nadim Hossain</h2>"
                 + "<h2>Reg No : 2009331044</h2>"
                 +"</html>"
         );

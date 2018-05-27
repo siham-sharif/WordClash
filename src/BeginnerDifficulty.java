@@ -1,7 +1,10 @@
-public class LevelOne {
+public class BeginnerDifficulty {
 
-    public LevelOne(int i){
+    public String wordsToMatch[] = {"AAM","ABACK","AAL","ABACATE", "BACK"};
 
+    public BeginnerDifficulty(int difficulty){
 
-    }
+        new GamePlay(2, wordsToMatch[difficulty], wordsToMatch[difficulty].length());
+
+        }
 }

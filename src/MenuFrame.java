@@ -40,15 +40,15 @@ public class MenuFrame extends JFrame {
         // Buttons under new game sections
         // beginner button
         beginnerBtn = new JButton("Beginner");
-        beginnerBtn.setBounds(160,100,200,50);
+        beginnerBtn.setBounds(160,160,200,50);
         beginnerBtn.setBackground(Color.WHITE);
         beginnerBtn.setFont(font);
 
         // easy button
-        easyBtn = new JButton("Easy");
-        easyBtn.setBounds(160,160,200,50);
-        easyBtn.setBackground(Color.WHITE);
-        easyBtn.setFont(font);
+        //easyBtn = new JButton("Easy");
+        //easyBtn.setBounds(160,160,200,50);
+        //easyBtn.setBackground(Color.WHITE);
+        //easyBtn.setFont(font);
 
         // medium button
         mediumBtn = new JButton("Medium");
@@ -63,10 +63,10 @@ public class MenuFrame extends JFrame {
         hardBtn.setFont(font);
 
         // proffesional button
-        profBtn = new JButton("Professional");
-        profBtn.setBounds(160,340,200,50);
-        profBtn.setBackground(Color.WHITE);
-        profBtn.setFont(font);
+        //profBtn = new JButton("Professional");
+        //profBtn.setBounds(160,340,200,50);
+        //profBtn.setBackground(Color.WHITE);
+        //profBtn.setFont(font);
 
         // back button
         backBtn = new JButton("Back");
@@ -99,7 +99,7 @@ public class MenuFrame extends JFrame {
         menuFrame.add(helpBtn);
 
         // credit button
-        creditBtn=new JButton("Credit's");
+        creditBtn=new JButton("Credits");
         creditBtn.setBounds(100, 340, 300, 50);
         creditBtn.setBackground(Color.WHITE);
         creditBtn.setFont(font);
@@ -179,6 +179,7 @@ public class MenuFrame extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+            menuFrame.setVisible(false);
             // game stage frame basic skeleton
             gameStageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             gameStageFrame.getContentPane().setBackground(Color.DARK_GRAY);
@@ -186,10 +187,10 @@ public class MenuFrame extends JFrame {
             gameStageFrame.setLayout(null);
             gameStageFrame.setBounds(100,100,500,600);
             gameStageFrame.setVisible(true);
-            menuFrame.setVisible(false);
+
 
             // adding level button
-            gameStageFrame.add(easyBtn);
+            gameStageFrame.add(beginnerBtn);
             gameStageFrame.add(mediumBtn);
             gameStageFrame.add(hardBtn);
 
@@ -201,8 +202,8 @@ public class MenuFrame extends JFrame {
         public void actionPerformed(ActionEvent e) {
             System.out.println("Beginner Button Clicked");
             new BeginnerLevel();
-            menuFrame.setVisible(false);
             gameStageFrame.setVisible(false);
+            menuFrame.setVisible(false);
 
         }
     }
