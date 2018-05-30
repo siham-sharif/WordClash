@@ -38,7 +38,7 @@ public class ImageInFrame extends JFrame{
 
     public void splashTimer()
     {
-        int counter = 1;
+        int counter = 3;
         TimeClass timeClass = new TimeClass(counter);
         timer = new Timer(1000, timeClass);
         timer.start();
