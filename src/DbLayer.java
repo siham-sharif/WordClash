@@ -63,10 +63,11 @@ public class DbLayer {
 
     }
 
-    public void checkRankList(){
+    public ArrayList<Users> checkRankList(){
+        Users users;
+        ArrayList<Users> usersArrayList = new ArrayList<Users>();
 
         try{
-
             // http://1bestcsharp.blogspot.com/2015/05/java-populating-jtable-mysql-database-arraylist.html
 
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -75,28 +76,22 @@ public class DbLayer {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM user ORDER BY score DESC");
 
-            Users users;
-            ArrayList<Users> usersArrayList = new ArrayList<Users>();
 
-            try {
-                while (resultSet.next()){
-                    users = new Users(
-                            resultSet.getString("user_name"),
-                            resultSet.getString("user_score")
-                    );
-                }
+
+            while (resultSet.next()){
+                users = new Users(
+                        resultSet.getString("user_name"),
+                        resultSet.getString("user_score")
+                );
 
                 usersArrayList.add(users);
-
-            }catch (Exception e){
-                e.printStackTrace();
             }
 
-            return;
         } catch (Exception e){
             e.printStackTrace();
         }
 
+        return usersArrayList;
     }
 
 }
