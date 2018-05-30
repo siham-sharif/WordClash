@@ -1,5 +1,6 @@
 import javax.xml.transform.Result;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DbLayer {
 
@@ -55,9 +56,43 @@ public class DbLayer {
                     new MenuFrame();
                 }
 
+        } catch (Exception e){
+            e.printStackTrace();
 
+        }
 
+    }
 
+    public void checkRankList(){
+
+        try{
+
+            // http://1bestcsharp.blogspot.com/2015/05/java-populating-jtable-mysql-database-arraylist.html
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, pass);
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM user ORDER BY score DESC");
+
+            Users users;
+            ArrayList<Users> usersArrayList = new ArrayList<Users>();
+
+            try {
+                while (resultSet.next()){
+                    users = new Users(
+                            resultSet.getString("user_name"),
+                            resultSet.getString("user_score")
+                    );
+                }
+
+                usersArrayList.add(users);
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+            return;
         } catch (Exception e){
             e.printStackTrace();
 
