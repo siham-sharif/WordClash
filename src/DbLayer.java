@@ -95,7 +95,6 @@ public class DbLayer {
             return;
         } catch (Exception e){
             e.printStackTrace();
-
         }
 
     }
