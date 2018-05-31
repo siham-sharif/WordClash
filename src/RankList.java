@@ -1,5 +1,6 @@
 import javax.jws.soap.SOAPBinding;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,35 +15,53 @@ public class RankList extends JFrame {
 
     public JButton backBtn;
     public JLabel rankListLabel;
+    public JPanel panel;
+
+    JTable rankTable = new JTable();
 
     public RankList(){
 
-        //
         System.out.println("RankList Page hit!");
+
         // basic skeleton of credit frame
         ranklistFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ranklistFrame.setSize(500,600);
         ranklistFrame.setVisible(true);
         ranklistFrame.setResizable(false);
 
-        rankListLabel = new JLabel();
-        rankListLabel.setText("Rank List table");
-        rankListLabel.setFont(font);
-        rankListLabel.setForeground(Color.DARK_GRAY);
+        // working with JTable
+        ArrayList<Users> usersArrayList = new ArrayList<Users>();
+        DbLayer dbLayer = new DbLayer();
+        usersArrayList = dbLayer.checkRankList();
 
-        ranklistFrame.add(rankListLabel, BorderLayout.NORTH);
+        DefaultTableModel model = new DefaultTableModel();
+        Object[] columnName = new Object[2];
+        columnName[0] = "User";
+        columnName[1] = "Score";
 
+        Object[] rowData = new Object[2];
 
+        model.setColumnIdentifiers(columnName);
 
+        for(int i =0; i<usersArrayList.size();i++){
+            rowData[0] = usersArrayList.get(i).getUserName();
+            rowData[1] = usersArrayList.get(i).getUserScore();
 
+            model.addRow(rowData);
+        }
 
+        rankTable.setModel(model);
 
+        panel = new JPanel();
+        panel.setLayout(new BorderLayout());
 
+        JScrollPane scrollPane = new JScrollPane(rankTable);
+        rankTable.setFillsViewportHeight(true);
+        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.setVisible(true);
+        //panel.setBackground(Color.WHITE);
 
-
-
-
-
+        ranklistFrame.setContentPane(panel);
 
         // adding back button
         backBtn = new JButton("Back to Menu");
@@ -52,8 +71,8 @@ public class RankList extends JFrame {
         backBtn.setFont(font);
 
         // setting back button to bottom
-        //rankListPanel.add(backBtn, BorderLayout.SOUTH);
-        ranklistFrame.add(backBtn, BorderLayout.SOUTH);
+        panel.add(backBtn, BorderLayout.SOUTH);
+        ranklistFrame.setContentPane(panel);
 
         backToMenu backBtnClicked = new backToMenu();
         backBtn.addActionListener(backBtnClicked);

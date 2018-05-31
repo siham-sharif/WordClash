@@ -81,7 +81,7 @@ public class DbLayer {
             while (resultSet.next()){
                 users = new Users(
                         resultSet.getString("user_name"),
-                        resultSet.getString("user_score")
+                        resultSet.getString("score")
                 );
 
                 usersArrayList.add(users);
