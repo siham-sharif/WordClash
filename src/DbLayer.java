@@ -1,6 +1,7 @@
 import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class DbLayer {
 
@@ -92,6 +93,29 @@ public class DbLayer {
         }
 
         return usersArrayList;
+    }
+
+    public ArrayList<String> wordFetcher(){
+
+        ArrayList<String> wordArrayList = new ArrayList<String>();
+        try{
+            // http://1bestcsharp.blogspot.com/2015/05/java-populating-jtable-mysql-database-arraylist.html
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, pass);
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM word_tb ORDER BY RAND() LIMIT 5");
+
+            while(resultSet.next()){
+                wordArrayList.add(resultSet.getString("word"));
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return wordArrayList;
     }
 
 }
