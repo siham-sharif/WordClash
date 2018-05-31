@@ -95,6 +95,7 @@ public class DbLayer {
         return usersArrayList;
     }
 
+    // should accept LENGTH param
     public ArrayList<String> wordFetcher(){
 
         ArrayList<String> wordArrayList = new ArrayList<String>();
@@ -105,7 +106,8 @@ public class DbLayer {
             connection = DriverManager.getConnection(url, user, pass);
 
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM word_tb ORDER BY RAND() LIMIT 5");
+            //resultSet = statement.executeQuery("SELECT * FROM word_tb ORDER BY RAND() LIMIT 5");
+            resultSet = statement.executeQuery("SELECT word FROM word_tb WHERE LENGTH( word ) <=3 ORDER BY RAND( ) LIMIT 5");
 
             while(resultSet.next()){
                 wordArrayList.add(resultSet.getString("word"));
