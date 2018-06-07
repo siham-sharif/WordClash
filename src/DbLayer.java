@@ -107,8 +107,8 @@ public class DbLayer {
             connection = DriverManager.getConnection(url, user, pass);
 
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT word FROM word_easy ORDER BY RAND() LIMIT 5");
-            //resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) <=3 ORDER BY RAND( ) LIMIT 5");
+            //resultSet = statement.executeQuery("SELECT word FROM word_easy ORDER BY RAND() LIMIT 5");
+            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) <=4 ORDER BY RAND( ) LIMIT 1");
 
             while(resultSet.next()){
                 wordArrayList.add(resultSet.getString("word"));

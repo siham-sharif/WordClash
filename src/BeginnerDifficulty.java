@@ -28,13 +28,22 @@ public class BeginnerDifficulty {
                 singleCharSet.add(alphabet);
             }
         }
-        // printting single character set
-        Iterator<String> itr = singleCharSet.iterator();
+
+        System.out.println("Printing fetched words");
+        Iterator<String> itr = wordList.iterator();
         while (itr.hasNext()){
             System.out.println(itr.next());
         }
 
-        new GamePlay(2, wordsToMatch[difficulty], wordsToMatch[difficulty].length());
+        // printing single character set
+        //Iterator<String> itr = singleCharSet.iterator();
+        //while (itr.hasNext()){
+        //    System.out.println(itr.next());
+        //}
+
+        // setting button and column number
+
+        new GamePlay(2, 3, wordList, singleCharSet);
 
         }
 }

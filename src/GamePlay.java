@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.TreeSet;
 
 public class GamePlay extends JFrame implements ActionListener {
 
@@ -25,16 +27,19 @@ public class GamePlay extends JFrame implements ActionListener {
 
     //frame
     static String str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-    public static int rowInPressBtn;
+    public static int rowInPressBtn, clmInPressBtn;
+
+
     String letter[] = new String[ 100 ];
     JButton wordBtn[] = new JButton[ 100 ];
 
 
-    public GamePlay(int buttonRow, String singleWord, int stringLength) {
+    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, TreeSet<String> singleCharSet) {
 
         System.out.println("Game Play Screen Activated");
 
         rowInPressBtn = buttonRow;
+        clmInPressBtn = buttonClm;
 
         gplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gplayFrame.setSize(500, 600);
@@ -75,20 +80,62 @@ public class GamePlay extends JFrame implements ActionListener {
         int x = (width - buttonWidth) / 2;
         int y = (height - buttonHeight) / 2;
         int tmp = x;
-        //int tmp2 = y;
-        int i, j, cnt = 0, ind2 = singleWord.length() - 1;
-        for (i = 1; i <= buttonRow; i++) {
+
+
+        String singleWord = wordList.get(0);
+
+        int totalButton = buttonRow * buttonClm;
+
+        // filling up the empty space of button
+        if(singleCharSet.size() <= totalButton){
+            singleCharSet.add(str[ random.nextInt(25)]);
+        }
+
+        ArrayList<String> singleCharList = new ArrayList<>(singleCharSet);
+
+        int cnt = 0, ind2 = singleWord.length() - 1;
+
+        for (int rowStarter = 1; rowStarter <= buttonRow; rowStarter++){
+
             tmp = x;
-            for (j = 1; j <= buttonRow + 1; j++) {
-                if (cnt < stringLength) {
+
+            for(int clmStarter =1; clmStarter <= buttonClm; clmStarter++){
+                letter [cnt] = singleCharList.remove(random.nextInt(singleCharSet.size()));
+                wordBtn[ cnt ] = new JButton(letter[ cnt ]);
+                wordBtn[ cnt ].setFont(font);
+                wordBtn[ cnt ].setBackground(Color.WHITE);
+                wordBtn[ cnt ].setBounds(tmp, y, 100, 50);
+
+            }
+
+            wordBtn[ cnt ].addActionListener(this);
+            gplayFrame.add(wordBtn[ cnt ]);
+            tmp += 100;
+            cnt++;
+            y += 50;
+        }
+
+        x = width / 5;
+        y = y + 50;
+
+        //String puzzleWordArray[]
+
+        /*
+
+        for (int i = 1; i <= buttonRow; i++) {
+            tmp = x;
+            for (int j = 1; j <= buttonClm; j++) {
+                if (cnt < singleWord.length()) {
                     letter[ cnt ] = singleWord.substring(ind2, ind2 + 1);
                     wordBtn[ cnt ] = new JButton(letter[ cnt ]);
                     wordBtn[ cnt ].setFont(font);
-                } else {
+                }
+                else {
                     letter[ cnt ] = str[ random.nextInt(25) ];
                     wordBtn[ cnt ] = new JButton(letter[ cnt ]);
                     wordBtn[ cnt ].setFont(font);
                 }
+
                 wordBtn[ cnt ].setBackground(Color.WHITE);
                 wordBtn[ cnt ].setBounds(tmp, y, 100, 50);
                 wordBtn[ cnt ].addActionListener(this);
@@ -102,6 +149,7 @@ public class GamePlay extends JFrame implements ActionListener {
 
         x = width / 5;
         y = y + 50;
+        */
 
         //done, clear, menu
 
@@ -160,7 +208,7 @@ public class GamePlay extends JFrame implements ActionListener {
             else
                 {
 
-                    for (int i = 0; i < rowInPressBtn * rowInPressBtn; i++){
+                    for (int i = 0; i < rowInPressBtn * clmInPressBtn; i++){
                         if(actionTaken.getSource() == wordBtn[ i ]){
                             word += letter[i];
                             wordLabel.setText(word);
