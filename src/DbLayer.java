@@ -1,3 +1,4 @@
+import javax.swing.*;
 import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
@@ -106,8 +107,8 @@ public class DbLayer {
             connection = DriverManager.getConnection(url, user, pass);
 
             statement = connection.createStatement();
-            //resultSet = statement.executeQuery("SELECT * FROM word_tb ORDER BY RAND() LIMIT 5");
-            resultSet = statement.executeQuery("SELECT word FROM word_tb WHERE LENGTH( word ) <=3 ORDER BY RAND( ) LIMIT 5");
+            resultSet = statement.executeQuery("SELECT word FROM word_easy ORDER BY RAND() LIMIT 5");
+            //resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) <=3 ORDER BY RAND( ) LIMIT 5");
 
             while(resultSet.next()){
                 wordArrayList.add(resultSet.getString("word"));
@@ -118,6 +119,39 @@ public class DbLayer {
         }
 
         return wordArrayList;
+    }
+
+    //
+    public boolean wordExist(String inputWord){
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, pass);
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM word_tb");
+
+            //inputWord has default prefix --> word:
+            //so we had to split it and use the latter part to compare in DB
+            String origWord[] = inputWord.split(" ");
+
+            while(resultSet.next()){
+                String dbWord = (String) resultSet.getString("word");
+
+                if(dbWord.equals(origWord[1]))
+                {
+                    JOptionPane.showMessageDialog(null, "SUCCESS");
+                    return true;
+                }
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 }

@@ -76,7 +76,8 @@ public class BeginnerLevel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            new BeginnerDifficulty(1);
+            // setting difficuly for beginner level
+            new BeginnerDifficulty(0);
             beginnerFrame.setVisible(false);
 
         }

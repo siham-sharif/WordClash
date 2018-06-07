@@ -4,8 +4,8 @@ import java.util.TreeSet;
 
 public class BeginnerDifficulty {
 
-    public String wordsToMatch[] = {"AAM","ABACK","AAL","ABACATE", "BACK"};
-
+    //public String wordsToMatch[] = {"AAM","ABACK","AAL","ABACATE", "BACK"};
+    public String wordsToMatch[] = {"ABLE","GOOD","FINE","CAT"};
     ArrayList<String> wordList = new ArrayList<String>();
     DbLayer dbLayer = new DbLayer();
     String[] alphabets;
