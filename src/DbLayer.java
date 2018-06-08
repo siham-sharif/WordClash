@@ -9,7 +9,7 @@ public class DbLayer {
     public String url = "jdbc:mysql://localhost:3306/wordclash_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
     //public String url = "jdbc:mysql://localhost:3306/wordclash_db";
     public String user = "root";
-    public String pass = "therap";
+    public String pass = "therap123"; // therap in office pc
     public Connection connection;
 
     public Statement statement;
@@ -108,7 +108,7 @@ public class DbLayer {
 
             statement = connection.createStatement();
             //resultSet = statement.executeQuery("SELECT word FROM word_easy ORDER BY RAND() LIMIT 5");
-            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) <=4 ORDER BY RAND( ) LIMIT 1");
+            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) =4 ORDER BY RAND( ) LIMIT 1");
 
             while(resultSet.next()){
                 wordArrayList.add(resultSet.getString("word"));
@@ -130,6 +130,9 @@ public class DbLayer {
 
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM word_tb");
+
+            //using LIKE in java code : https://stackoverflow.com/questions/6599950/how-to-use-mysql-like-operator-in-jdbc
+            //resultSet = statement.executeQuery("SELECT * FROM word_tb WHERE word LIKE "+ inputWord.toLowerCase());
 
             //inputWord has default prefix --> word:
             //so we had to split it and use the latter part to compare in DB

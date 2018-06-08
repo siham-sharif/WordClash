@@ -25,7 +25,7 @@ public class BeginnerDifficulty {
             alphabets = word.split("");
 
             for(String alphabet : alphabets){
-                singleCharSet.add(alphabet);
+                singleCharSet.add(alphabet.toUpperCase());
             }
         }
 
