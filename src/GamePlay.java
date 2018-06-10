@@ -148,7 +148,8 @@ public class GamePlay extends JFrame implements ActionListener {
 
 
     }
-        public void actionPerformed(ActionEvent actionTaken) {
+
+    public void actionPerformed(ActionEvent actionTaken) {
 
             if(actionTaken.getSource() == doneBtn){
 
@@ -165,15 +166,14 @@ public class GamePlay extends JFrame implements ActionListener {
                             ++j;
                             gplayFrame.setVisible(false);
                             new BeginnerDifficulty(j);
-                            //new BeginnerLevel(j);
                         }
 
                     }
 
                 }
-                catch(Exception excep)
+                catch(Exception e)
                 {
-
+                    e.printStackTrace();
                 }
             }
 
