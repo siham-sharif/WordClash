@@ -97,7 +97,7 @@ public class DbLayer {
     }
 
     // should accept LENGTH param
-    public ArrayList<String> wordFetcher(String difficulty){
+    public ArrayList<String> wordFetcher(String difficulty, int limit){
 
         int wordLength;
         String sign= "=" ;
@@ -122,7 +122,7 @@ public class DbLayer {
 
             statement = connection.createStatement();
             //resultSet = statement.executeQuery("SELECT word FROM word_easy ORDER BY RAND() LIMIT 5");
-            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) "+ sign + " " + wordLength + " ORDER BY RAND( ) LIMIT 1");
+            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) "+ sign + " " + wordLength + " ORDER BY RAND( ) LIMIT " + limit);
 
             while(resultSet.next()){
                 wordArrayList.add(resultSet.getString("word"));

@@ -23,8 +23,6 @@ public class GamePlay extends JFrame implements ActionListener {
     public String textScore = "0";
     public int numberScore = 0;
 
-    public static int j;
-
     //frame
     static String str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
     public static int rowInPressBtn, clmInPressBtn;
@@ -33,13 +31,24 @@ public class GamePlay extends JFrame implements ActionListener {
     String letter[] = new String[ 100 ];
     JButton wordBtn[] = new JButton[ 100 ];
 
+    public int buttonRow;
+    public int buttonClm;
+    public ArrayList<String> wordList;
+    public int gamePlayRound;
 
-    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, TreeSet<String> singleCharSet, int gamePlayRound) {
+
+    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, int gamePlayRound) {
+
 
         System.out.println("Game Play Screen Activated");
 
         rowInPressBtn = buttonRow;
         clmInPressBtn = buttonClm;
+
+        this.buttonRow=buttonRow;
+        this.buttonClm=buttonClm;
+        this.wordList=wordList;
+        this.gamePlayRound=gamePlayRound;
 
         gplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gplayFrame.setSize(500, 600);
@@ -71,7 +80,7 @@ public class GamePlay extends JFrame implements ActionListener {
 
         gplayFrame.add(wordLabel);
 
-        // frame
+        // button height width x-y-axis position
         Random random = new Random();
         int width = 500;
         int height = 600;
@@ -83,10 +92,28 @@ public class GamePlay extends JFrame implements ActionListener {
 
         int totalButton = buttonRow * buttonClm;
 
+        // selecting and splitting the word
+        String currentWord ="";
+        String[] splittedChar;
+
+        if (wordList.size() > 0 ) {
+            currentWord = wordList.get(0);
+            wordList.remove(currentWord);
+        }
+
+        TreeSet<String> singleCharSet = new TreeSet<String>();
+
+            splittedChar = currentWord.split("");
+
+            for(String singleChar : splittedChar){
+                singleCharSet.add(singleChar.toUpperCase());
+            }
+
         // filling up the empty space of button
         while(singleCharSet.size() < totalButton){
             singleCharSet.add(str[ random.nextInt(25)]);
         }
+        System.out.printf("current word : %s", currentWord);
         System.out.printf("Size of singleChatSet : %d\n", singleCharSet.size());
         System.out.printf("complete singleChatSet : %s\n", singleCharSet);
 
@@ -96,7 +123,7 @@ public class GamePlay extends JFrame implements ActionListener {
 
         for (int rowStarter = 1; rowStarter <= buttonRow; rowStarter++){
 
-            tmp = x-50;
+            tmp = x-100;
 
             for(int clmStarter =1; clmStarter <= buttonClm; clmStarter++){
 
@@ -162,10 +189,15 @@ public class GamePlay extends JFrame implements ActionListener {
                         scoreLabel.setText(textScore);
 
                         word = "";
-                        if(rowInPressBtn == 2 ){
+                        if(gamePlayRound > 1){
 
+                            --gamePlayRound;
                             gplayFrame.setVisible(false);
-                            new DifficultySetter("easy.one"); /// this was j++
+                            new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound);
+                        }
+                        else {
+                            gplayFrame.setVisible(false);
+                            new GameOverFrame();
                         }
 
                     }

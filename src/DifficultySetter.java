@@ -8,8 +8,10 @@ public class DifficultySetter {
 
     ArrayList<String> wordList = new ArrayList<String>();
     DbLayer dbLayer = new DbLayer();
-    String[] alphabets;
-    TreeSet<String> singleCharSet = new TreeSet<String>();
+
+
+    //String[] alphabets;
+    //TreeSet<String> singleCharSet = new TreeSet<String>();
 
     // fetch word from db
     // learn to slice it and create array of character using Set
@@ -22,7 +24,7 @@ public class DifficultySetter {
         int buttonRow, buttonClm, gamePlayRound=0;
 
         switch (difficulty) {
-            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 5;
+            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 2;
                 break;
             case "easy.two":  buttonRow = 1; buttonClm = 4; gamePlayRound = 8;
                 break;
@@ -32,15 +34,15 @@ public class DifficultySetter {
                 break;
         }
 
-        wordList = dbLayer.wordFetcher(difficulty);
+        wordList = dbLayer.wordFetcher(difficulty, gamePlayRound);
 
-        for(String word : wordList){
-            alphabets = word.split("");
-
-            for(String alphabet : alphabets){
-                singleCharSet.add(alphabet.toUpperCase());
-            }
-        }
+//        for(String word : wordList){
+//            alphabets = word.split("");
+//
+//            for(String alphabet : alphabets){
+//                singleCharSet.add(alphabet.toUpperCase());
+//            }
+//        }
 
         System.out.println("Printing fetched words");
         Iterator<String> itr = wordList.iterator();
@@ -56,7 +58,7 @@ public class DifficultySetter {
 
         // setting button and column number
 
-        new GamePlay(buttonRow, buttonClm, wordList, singleCharSet, gamePlayRound);
+        new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound);
 
         }
 }

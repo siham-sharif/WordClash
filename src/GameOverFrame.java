@@ -7,6 +7,8 @@ public class GameOverFrame extends JFrame{
 
     public GameOverFrame(){
 
+        System.out.println("In Game Over Frame");
+
     }
 
 }
