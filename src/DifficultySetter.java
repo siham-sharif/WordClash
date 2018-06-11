@@ -24,7 +24,7 @@ public class DifficultySetter {
         int buttonRow, buttonClm, gamePlayRound=0;
 
         switch (difficulty) {
-            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 2;
+            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 5;
                 break;
             case "easy.two":  buttonRow = 1; buttonClm = 4; gamePlayRound = 8;
                 break;
@@ -36,28 +36,13 @@ public class DifficultySetter {
 
         wordList = dbLayer.wordFetcher(difficulty, gamePlayRound);
 
-//        for(String word : wordList){
-//            alphabets = word.split("");
-//
-//            for(String alphabet : alphabets){
-//                singleCharSet.add(alphabet.toUpperCase());
-//            }
-//        }
-
         System.out.println("Printing fetched words");
         Iterator<String> itr = wordList.iterator();
         while (itr.hasNext()){
             System.out.println(itr.next());
         }
 
-        // printing single character set
-        //Iterator<String> itr = singleCharSet.iterator();
-        //while (itr.hasNext()){
-        //    System.out.println(itr.next());
-        //}
-
-        // setting button and column number
-
+        // setting button and column number, passing fetched words, how many rounds
         new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound);
 
         }

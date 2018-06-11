@@ -24,7 +24,8 @@ public class GamePlay extends JFrame implements ActionListener {
     public int numberScore = 0;
 
     //frame
-    static String str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+    static String str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                            "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
     public static int rowInPressBtn, clmInPressBtn;
 
 
@@ -42,13 +43,14 @@ public class GamePlay extends JFrame implements ActionListener {
 
         System.out.println("Game Play Screen Activated");
 
-        rowInPressBtn = buttonRow;
-        clmInPressBtn = buttonClm;
 
         this.buttonRow=buttonRow;
         this.buttonClm=buttonClm;
         this.wordList=wordList;
         this.gamePlayRound=gamePlayRound;
+
+        this.rowInPressBtn = buttonRow;
+        this.clmInPressBtn = buttonClm;
 
         gplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gplayFrame.setSize(500, 600);
@@ -97,7 +99,7 @@ public class GamePlay extends JFrame implements ActionListener {
         String[] splittedChar;
 
         if (wordList.size() > 0 ) {
-            currentWord = wordList.get(0);
+            currentWord = wordList.get(0); // taking one word and assigning to current word
             wordList.remove(currentWord);
         }
 
@@ -117,10 +119,10 @@ public class GamePlay extends JFrame implements ActionListener {
         System.out.printf("Size of singleChatSet : %d\n", singleCharSet.size());
         System.out.printf("complete singleChatSet : %s\n", singleCharSet);
 
+        // placing the buttons according to splitted words
         ArrayList<String> singleCharList = new ArrayList<>(singleCharSet);
 
         int charPosition = 0;
-
         for (int rowStarter = 1; rowStarter <= buttonRow; rowStarter++){
 
             tmp = x-100;
@@ -151,9 +153,6 @@ public class GamePlay extends JFrame implements ActionListener {
             y += 50;
         }
 
-        //x = width / 5;
-        //y = y + 50;
-
         //done, clear, menu
 
         doneBtn.setBounds(100, 500, 100, 50);
@@ -183,6 +182,7 @@ public class GamePlay extends JFrame implements ActionListener {
                 DbLayer dbLayer = new DbLayer();
 
                 try{
+                    // if matched logic
                     if (word.length() > 2 && dbLayer.wordExist(word.toLowerCase())){
                         numberScore += word.length();
                         textScore = Integer.toString(numberScore);
@@ -201,14 +201,17 @@ public class GamePlay extends JFrame implements ActionListener {
                         }
 
                     }
+                    // if not matched logic
+                    else{
 
+                    }
                 }
                 catch(Exception e)
                 {
                     e.printStackTrace();
                 }
             }
-
+            // clear button work
             if(actionTaken.getSource() == clearBtn){
                 word = "WORD: ";
                 wordLabel.setText(word);
@@ -217,9 +220,9 @@ public class GamePlay extends JFrame implements ActionListener {
                 new MenuFrame();
                 gplayFrame.setVisible(false);
             }
+            // clicking on single character button will set the upper label section to selected words
             else
                 {
-
                     for (int i = 0; i < rowInPressBtn * clmInPressBtn; i++){
                         if(actionTaken.getSource() == wordBtn[ i ]){
                             word += letter[i];
