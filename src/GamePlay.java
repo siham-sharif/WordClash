@@ -165,7 +165,7 @@ public class GamePlay extends JFrame implements ActionListener {
                         if(rowInPressBtn == 2 ){
 
                             gplayFrame.setVisible(false);
-                            new BeginnerDifficulty("easy.one"); /// this was j++
+                            new DifficultySetter("easy.one"); /// this was j++
                         }
 
                     }

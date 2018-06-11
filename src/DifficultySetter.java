@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-public class BeginnerDifficulty {
+public class DifficultySetter {
 
     static String str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
@@ -17,7 +17,7 @@ public class BeginnerDifficulty {
     // https://www.quora.com/How-do-you-split-a-word-in-Java
 
 
-    public BeginnerDifficulty(String difficulty){
+    public DifficultySetter (String difficulty){
 
         int buttonRow, buttonClm, gamePlayRound=0;
 

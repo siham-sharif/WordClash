@@ -69,15 +69,15 @@ public class BeginnerLevel implements ActionListener {
             beginnerFrame.setVisible(false);
         }
         if (actionTaken.getSource() == lvlOneBtn) {
-            new BeginnerDifficulty("easy.one");
+            new DifficultySetter("easy.one");
             beginnerFrame.setVisible(false);
         }
         if (actionTaken.getSource() == lvlTwoBtn) {
-            new BeginnerDifficulty("easy.two");
+            new DifficultySetter("easy.two");
             beginnerFrame.setVisible(false);
         }
         if (actionTaken.getSource() == lvlThreeBtn) {
-            new BeginnerDifficulty("easy.three");
+            new DifficultySetter("easy.three");
             beginnerFrame.setVisible(false);
         }
 
