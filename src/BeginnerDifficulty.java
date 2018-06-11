@@ -17,9 +17,22 @@ public class BeginnerDifficulty {
     // https://www.quora.com/How-do-you-split-a-word-in-Java
 
 
-    public BeginnerDifficulty(int difficulty){
+    public BeginnerDifficulty(String difficulty){
 
-        wordList = dbLayer.wordFetcher();
+        int buttonRow, buttonClm, gamePlayRound=0;
+
+        switch (difficulty) {
+            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 5;
+                break;
+            case "easy.two":  buttonRow = 1; buttonClm = 4; gamePlayRound = 8;
+                break;
+            case "easy.three":  buttonRow = 2; buttonClm = 2; gamePlayRound = 10;
+                break;
+            default: buttonRow = 2; buttonClm = 2;
+                break;
+        }
+
+        wordList = dbLayer.wordFetcher(difficulty);
 
         for(String word : wordList){
             alphabets = word.split("");
@@ -43,7 +56,7 @@ public class BeginnerDifficulty {
 
         // setting button and column number
 
-        new GamePlay(2, 3, wordList, singleCharSet);
+        new GamePlay(buttonRow, buttonClm, wordList, singleCharSet, gamePlayRound);
 
         }
 }

@@ -9,7 +9,7 @@ public class DbLayer {
     public String url = "jdbc:mysql://localhost:3306/wordclash_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
     //public String url = "jdbc:mysql://localhost:3306/wordclash_db";
     public String user = "root";
-    public String pass = "therap123"; // therap in office pc
+    public String pass = "therap"; // therap123 in home pc
     public Connection connection;
 
     public Statement statement;
@@ -97,7 +97,21 @@ public class DbLayer {
     }
 
     // should accept LENGTH param
-    public ArrayList<String> wordFetcher(){
+    public ArrayList<String> wordFetcher(String difficulty){
+
+        int wordLength;
+        String sign= "=" ;
+        switch (difficulty) {
+            case "easy.one":  wordLength = 3; sign = "<=";
+                break;
+            case "easy.two":  wordLength = 3; sign = "=";
+                break;
+            case "easy.three":  wordLength = 4; sign = ">=";
+                break;
+            default: wordLength = 3;
+                break;
+        }
+
 
         ArrayList<String> wordArrayList = new ArrayList<String>();
         try{
@@ -108,7 +122,7 @@ public class DbLayer {
 
             statement = connection.createStatement();
             //resultSet = statement.executeQuery("SELECT word FROM word_easy ORDER BY RAND() LIMIT 5");
-            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) =4 ORDER BY RAND( ) LIMIT 1");
+            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) "+ sign + " " + wordLength + " ORDER BY RAND( ) LIMIT 1");
 
             while(resultSet.next()){
                 wordArrayList.add(resultSet.getString("word"));

@@ -34,7 +34,7 @@ public class GamePlay extends JFrame implements ActionListener {
     JButton wordBtn[] = new JButton[ 100 ];
 
 
-    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, TreeSet<String> singleCharSet) {
+    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, TreeSet<String> singleCharSet, int gamePlayRound) {
 
         System.out.println("Game Play Screen Activated");
 
@@ -163,9 +163,9 @@ public class GamePlay extends JFrame implements ActionListener {
 
                         word = "";
                         if(rowInPressBtn == 2 ){
-                            ++j;
+
                             gplayFrame.setVisible(false);
-                            new BeginnerDifficulty(j);
+                            new BeginnerDifficulty("easy.one"); /// this was j++
                         }
 
                     }
