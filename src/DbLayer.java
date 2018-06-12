@@ -16,7 +16,12 @@ public class DbLayer {
     public ResultSet resultSet;
     boolean userExists = false;
 
+    //user name same across the game
+    public static String currentUserName;
+
     public void checkLogin(String inputFromUser){
+
+        currentUserName=inputFromUser;
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");

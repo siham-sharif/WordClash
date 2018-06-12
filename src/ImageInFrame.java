@@ -14,11 +14,8 @@ public class ImageInFrame extends JFrame{
 
     public ImageInFrame() throws IOException{
 
-
-
-
         String splashPathDir = System.getProperty("user.dir");
-        System.out.println(splashPathDir);
+        //System.out.println(splashPathDir);
         String splashLocation = "src/splash.jpg";
 
         File splashFile = new File(splashPathDir,splashLocation);

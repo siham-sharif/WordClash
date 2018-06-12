@@ -24,7 +24,7 @@ public class DifficultySetter {
         int buttonRow, buttonClm, gamePlayRound=0;
 
         switch (difficulty) {
-            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 5;
+            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 1;
                 break;
             case "easy.two":  buttonRow = 1; buttonClm = 4; gamePlayRound = 8;
                 break;

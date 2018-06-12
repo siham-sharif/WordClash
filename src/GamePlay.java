@@ -197,12 +197,14 @@ public class GamePlay extends JFrame implements ActionListener {
                         }
                         else {
                             gplayFrame.setVisible(false);
-                            new GameOverFrame();
+                            new GameOverFrame("You Won!", textScore);
                         }
 
                     }
                     // if not matched logic
                     else{
+                        gplayFrame.setVisible(false);
+                        new GameOverFrame("You Lost!", textScore);
 
                     }
                 }
