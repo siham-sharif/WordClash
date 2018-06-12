@@ -21,7 +21,7 @@ public class GamePlay extends JFrame implements ActionListener {
     public JLabel scoreLabel;
     public String score = "SCORE: ";
     public String textScore = "0";
-    public int numberScore = 0;
+
 
     //frame
     static String str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
@@ -36,9 +36,12 @@ public class GamePlay extends JFrame implements ActionListener {
     public int buttonClm;
     public ArrayList<String> wordList;
     public int gamePlayRound;
+    public int numberScore;
+
+    private String currentWord ="";
 
 
-    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, int gamePlayRound) {
+    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, int gamePlayRound, int playerPrevScore) {
 
 
         System.out.println("Game Play Screen Activated");
@@ -48,6 +51,7 @@ public class GamePlay extends JFrame implements ActionListener {
         this.buttonClm=buttonClm;
         this.wordList=wordList;
         this.gamePlayRound=gamePlayRound;
+        this.numberScore = playerPrevScore;
 
         this.rowInPressBtn = buttonRow;
         this.clmInPressBtn = buttonClm;
@@ -95,7 +99,6 @@ public class GamePlay extends JFrame implements ActionListener {
         int totalButton = buttonRow * buttonClm;
 
         // selecting and splitting the word
-        String currentWord ="";
         String[] splittedChar;
 
         if (wordList.size() > 0 ) {
@@ -183,8 +186,8 @@ public class GamePlay extends JFrame implements ActionListener {
 
                 try{
                     // if matched logic
-                    if (word.length() > 2 && dbLayer.wordExist(word.toLowerCase())){
-                        numberScore += word.length();
+                    if (word.length() >= 2 && dbLayer.wordExist(word.toLowerCase())){
+                        numberScore += word.length()-6; // -6 because of default --> "WORD: "
                         textScore = Integer.toString(numberScore);
                         scoreLabel.setText(textScore);
 
@@ -193,10 +196,11 @@ public class GamePlay extends JFrame implements ActionListener {
 
                             --gamePlayRound;
                             gplayFrame.setVisible(false);
-                            new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound);
+                            new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound, numberScore);
                         }
                         else {
                             gplayFrame.setVisible(false);
+                            dbLayer.updateScore(textScore);
                             new GameOverFrame("You Won!", textScore);
                         }
 
@@ -204,8 +208,8 @@ public class GamePlay extends JFrame implements ActionListener {
                     // if not matched logic
                     else{
                         gplayFrame.setVisible(false);
+                        dbLayer.updateScore(textScore);
                         new GameOverFrame("You Lost!", textScore);
-
                     }
                 }
                 catch(Exception e)

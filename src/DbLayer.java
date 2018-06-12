@@ -101,7 +101,6 @@ public class DbLayer {
         return usersArrayList;
     }
 
-    // should accept LENGTH param
     public ArrayList<String> wordFetcher(String difficulty, int limit){
 
         int wordLength;
@@ -116,7 +115,6 @@ public class DbLayer {
             default: wordLength = 3;
                 break;
         }
-
 
         ArrayList<String> wordArrayList = new ArrayList<String>();
         try{
@@ -140,7 +138,6 @@ public class DbLayer {
         return wordArrayList;
     }
 
-    //
     public boolean wordExist(String inputWord){
 
         try {
@@ -174,6 +171,23 @@ public class DbLayer {
         }
 
         return false;
+    }
+
+    public void updateScore(String userScore){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, pass);
+
+            statement = connection.createStatement();
+
+            //UPDATE `user` SET `user_name`=[value-1],`score`=[value-2] WHERE 1
+            statement.executeUpdate("UPDATE user SET score ='" +  userScore+ "' WHERE user_name = '" + currentUserName + "'");
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+
+        }
     }
 
 }

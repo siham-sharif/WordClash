@@ -24,7 +24,7 @@ public class DifficultySetter {
         int buttonRow, buttonClm, gamePlayRound=0;
 
         switch (difficulty) {
-            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 1;
+            case "easy.one":  buttonRow = 1; buttonClm = 3; gamePlayRound = 3;
                 break;
             case "easy.two":  buttonRow = 1; buttonClm = 4; gamePlayRound = 8;
                 break;
@@ -43,7 +43,7 @@ public class DifficultySetter {
         }
 
         // setting button and column number, passing fetched words, how many rounds
-        new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound);
+        new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound, 0);
 
         }
 }
