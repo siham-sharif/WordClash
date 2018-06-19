@@ -50,8 +50,21 @@ public class LoginPage extends JFrame{
             System.out.println("Clicked on Submit button in login page");
 
             DbLayer dbObject = new DbLayer();
-            dbObject.checkLogin(playerNameTextField.getText());
 
+            if(playerNameTextField.getText().trim().length() > 0 && playerNameTextField.getText().length() < 32 ) {
+                dbObject.checkLogin(playerNameTextField.getText());
+            }
+            else if(playerNameTextField.getText().trim().length() == 0)
+            {
+                JOptionPane.showMessageDialog(null, "User name can not be blank!\nPlease enter a valid user name");
+                loginFrame.setVisible(false);
+                new LoginPage();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "User name can not be more than 32 character long!\nPlease enter a valid user name");
+                loginFrame.setVisible(false);
+                new LoginPage();
+            }
             loginFrame.setVisible(false);
         }
     }

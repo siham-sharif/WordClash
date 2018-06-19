@@ -148,7 +148,6 @@ public class DbLayer {
             resultSet = statement.executeQuery("SELECT * FROM word_tb");
 
             //using LIKE in java code : https://stackoverflow.com/questions/6599950/how-to-use-mysql-like-operator-in-jdbc
-            //resultSet = statement.executeQuery("SELECT * FROM word_tb WHERE word LIKE "+ inputWord.toLowerCase());
 
             //inputWord has default prefix --> word:
             //so we had to split it and use the latter part to compare in DB
