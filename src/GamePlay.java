@@ -65,12 +65,12 @@ public class GamePlay extends JFrame implements ActionListener {
         gplayFrame.getContentPane().setBackground(Color.DARK_GRAY);
 
         // score label
-        scoreLabel = new JLabel(score);
+        scoreLabel = new JLabel(score + Integer.toString(numberScore));
         scoreLabel.setFont(font);
         scoreLabel.setOpaque(true);
         scoreLabel.setBackground(Color.WHITE);
         scoreLabel.setForeground(Color.BLACK);
-        scoreLabel.setBounds(330, 5, 80, 50);
+        scoreLabel.setBounds(330, 5, 120, 50);
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(18.0f));
 
         gplayFrame.add(scoreLabel);
@@ -173,8 +173,8 @@ public class GamePlay extends JFrame implements ActionListener {
         menuBtn.setBounds(300, 500, 100, 50);
         menuBtn.setBackground(Color.WHITE);
         menuBtn.setFont(font);
+        menuBtn.addActionListener(this);
         gplayFrame.add(menuBtn);
-
 
     }
 
@@ -207,6 +207,7 @@ public class GamePlay extends JFrame implements ActionListener {
                     }
                     // if not matched logic
                     else{
+                        textScore = Integer.toString(numberScore);
                         gplayFrame.setVisible(false);
                         dbLayer.updateScore(textScore);
                         new GameOverFrame("You Lost!", textScore);

@@ -9,7 +9,8 @@ public class LoginPage extends JFrame{
     public JFrame loginFrame = new JFrame("User Login");
     public JLabel playerNameLabel;
     public static JTextField playerNameTextField;
-    public JButton submitButton;
+    //public JButton submitButton;
+    public GameButton submitButton;
 
     public LoginPage(){
 
@@ -19,23 +20,23 @@ public class LoginPage extends JFrame{
         loginFrame.setVisible(true);
         loginFrame.setLayout(null);
 
-        Font playerNameFont = new Font("Matura MT Script Capitals",Font.BOLD,20);
+        Font font = new Font("Matura MT Script Capitals",Font.BOLD,20);
 
         playerNameLabel = new JLabel("Player Name");
         playerNameLabel.setBounds(100,150,200,100);
         playerNameLabel.setForeground(Color.LIGHT_GRAY);
-        playerNameLabel.setFont(playerNameFont);
+        playerNameLabel.setFont(font);
 
         playerNameTextField = new JTextField(20);
         playerNameTextField.setBounds(100,220,200,50);
         playerNameTextField.setForeground(Color.LIGHT_GRAY);
-        playerNameTextField.setFont(playerNameFont);
+        playerNameTextField.setFont(font);
 
-        submitButton = new JButton("Submit");
-        submitButton.setBounds(125,340,150,50);
-        submitButton.setBackground(Color.WHITE);
-        submitButton.setForeground(Color.BLACK);
-        submitButton.setFont(playerNameFont);
+        submitButton = new GameButton("Submit");
+        //submitButton.setBounds(125,340,150,50);
+        //submitButton.setBackground(Color.WHITE);
+        //submitButton.setForeground(Color.BLACK);
+        //submitButton.setFont(font);
 
         // adding everything to Frame
         loginFrame.add(playerNameLabel);
