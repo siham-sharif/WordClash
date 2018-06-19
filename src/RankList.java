@@ -10,10 +10,10 @@ import java.util.logging.Logger;
 
 public class RankList extends JFrame {
 
-    public JFrame ranklistFrame = new JFrame("Rank List");
+    public GameFrame ranklistFrame = new GameFrame("Rank List");
     public Font font = new Font("Matura MT Script Capitals", Font.BOLD, 25);
 
-    public JButton backBtn;
+    public GameButton backBtn;
     public JLabel rankListLabel;
     public JPanel panel;
 
@@ -24,10 +24,10 @@ public class RankList extends JFrame {
         System.out.println("RankList Page hit!");
 
         // basic skeleton of credit frame
-        ranklistFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ranklistFrame.setSize(500,600);
+        //ranklistFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //ranklistFrame.setSize(500,600);
         ranklistFrame.setVisible(true);
-        ranklistFrame.setResizable(false);
+        //ranklistFrame.setResizable(false);
 
         // working with JTable
         ArrayList<Users> usersArrayList = new ArrayList<Users>();
@@ -64,11 +64,11 @@ public class RankList extends JFrame {
         ranklistFrame.setContentPane(panel);
 
         // adding back button
-        backBtn = new JButton("Back to Menu");
-        backBtn.setSize(200,100);
-        backBtn.setBackground(Color.DARK_GRAY);
-        backBtn.setForeground(Color.WHITE);
-        backBtn.setFont(font);
+        backBtn = new GameButton("Back to Menu");
+        //backBtn.setSize(200,100);
+        //backBtn.setBackground(Color.DARK_GRAY);
+        //backBtn.setForeground(Color.WHITE);
+        //backBtn.setFont(font);
 
         // setting back button to bottom
         panel.add(backBtn, BorderLayout.SOUTH);

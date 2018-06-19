@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 
 public class MenuFrame extends JFrame {
 
-    public JFrame menuFrame = new JFrame("Menu");
+    public GameFrame menuFrame = new GameFrame("Menu");
     public Font font = new Font("Matura MT Script Capitals",Font.BOLD,20);
 
-    public JButton newGameBtn, rankListBtn, optionBtn, helpBtn, creditBtn, exitBtn;
+    public GameButton newGameBtn, rankListBtn, optionBtn, helpBtn, creditBtn, exitBtn;
 
     public JButton beginnerBtn, easyBtn, mediumBtn, hardBtn, profBtn;
     public JButton backBtn;
@@ -21,28 +21,23 @@ public class MenuFrame extends JFrame {
     public MenuFrame(){
 
         // setting menu frame basic parameter
-        menuFrame.setResizable(false);
-        menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        menuFrame.setVisible(true);
-        menuFrame.setBounds(100,100, 500, 600);
-        menuFrame.setLayout(null);
 
+        menuFrame.setVisible(true);
+        menuFrame.setLayout(null);
         menuFrame.getContentPane().setBackground(Color.darkGray);
 
         // new game button
-        newGameBtn = new JButton("New Game");
-        newGameBtn.setBounds(100,100,300,50);
-        newGameBtn.setBackground(Color.WHITE);
-        newGameBtn.setFont(font);
+        newGameBtn = new GameButton("New Game");
+        newGameBtn.setBounds(145,100,300,50);
 
         menuFrame.add(newGameBtn);
 
         // Buttons under new game sections
         // beginner button
-        beginnerBtn = new JButton("Beginner");
+        beginnerBtn = new GameButton("Beginner");
         beginnerBtn.setBounds(160,160,200,50);
-        beginnerBtn.setBackground(Color.WHITE);
-        beginnerBtn.setFont(font);
+        //beginnerBtn.setBackground(Color.WHITE);
+        //beginnerBtn.setFont(font);
 
         // easy button
         //easyBtn = new JButton("Easy");
@@ -51,66 +46,48 @@ public class MenuFrame extends JFrame {
         //easyBtn.setFont(font);
 
         // medium button
-        mediumBtn = new JButton("Medium");
+        mediumBtn = new GameButton("Medium");
         mediumBtn.setBounds(160,220,200,50);
-        mediumBtn.setBackground(Color.WHITE);
-        mediumBtn.setFont(font);
+        //mediumBtn.setBackground(Color.WHITE);
+        //mediumBtn.setFont(font);
 
         // hard button
-        hardBtn = new JButton("Hard");
+        hardBtn = new GameButton("Hard");
         hardBtn.setBounds(160,280,200,50);
-        hardBtn.setBackground(Color.WHITE);
-        hardBtn.setFont(font);
+        //hardBtn.setBackground(Color.WHITE);
+        //hardBtn.setFont(font);
 
-        // proffesional button
-        //profBtn = new JButton("Professional");
-        //profBtn.setBounds(160,340,200,50);
-        //profBtn.setBackground(Color.WHITE);
-        //profBtn.setFont(font);
 
         // back button
-        backBtn = new JButton("Back");
+        backBtn = new GameButton("Back");
         backBtn.setBounds(160,400,200,50);
-        backBtn.setBackground(Color.WHITE);
-        backBtn.setFont(font);
+        //backBtn.setBackground(Color.WHITE);
+        //backBtn.setFont(font);
 
         // Rank List Button
-        rankListBtn = new JButton("Rank List");
-        rankListBtn.setBounds(100, 160, 300, 50);
-        rankListBtn.setBackground(Color.WHITE);
-        rankListBtn.setFont(font);
-
+        rankListBtn = new GameButton("Rank List");
+        rankListBtn.setBounds(145, 160, 300, 50);
         menuFrame.add(rankListBtn);
 
         //
-        optionBtn =new JButton("Option");
-        optionBtn.setBounds(100, 220, 300, 50);
-        optionBtn.setBackground(Color.WHITE);
-        optionBtn.setFont(font);
-
+        optionBtn =new GameButton("Option");
+        optionBtn.setBounds(145, 220, 300, 50);
         menuFrame.add(optionBtn);
 
         // help button
-        helpBtn=new JButton("Help");
-        helpBtn.setBounds(100, 280, 300, 50);
-        helpBtn.setBackground(Color.WHITE);
-        helpBtn.setFont(font);
-
+        helpBtn=new GameButton("Help");
+        helpBtn.setBounds(145, 280, 300, 50);
         menuFrame.add(helpBtn);
 
         // credit button
-        creditBtn=new JButton("Credits");
-        creditBtn.setBounds(100, 340, 300, 50);
-        creditBtn.setBackground(Color.WHITE);
-        creditBtn.setFont(font);
+        creditBtn=new GameButton("Credits");
+        creditBtn.setBounds(145, 340, 300, 50);
 
         menuFrame.add(creditBtn);
 
         // exit button
-        exitBtn=new JButton("Exit");
-        exitBtn.setBounds(100, 400, 300, 50);
-        exitBtn.setBackground(Color.WHITE);
-        exitBtn.setFont(font);
+        exitBtn=new GameButton("Exit");
+        exitBtn.setBounds(145, 400, 300, 50);
         menuFrame.add(exitBtn);
 
         // adding listeners to buttons

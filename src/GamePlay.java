@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 public class GamePlay extends JFrame implements ActionListener {
 
-    public JFrame gplayFrame = new JFrame("Game ON!");
+    public GameFrame gplayFrame = new GameFrame("Game ON!");
     public Font font = new Font("Viner Hand ITC", Font.BOLD, 15);
 
     public JButton doneBtn = new JButton("Done");
@@ -56,12 +56,8 @@ public class GamePlay extends JFrame implements ActionListener {
         this.rowInPressBtn = buttonRow;
         this.clmInPressBtn = buttonClm;
 
-        gplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gplayFrame.setSize(500, 600);
-        gplayFrame.setResizable(false);
         gplayFrame.setLayout(null);
         gplayFrame.setVisible(true);
-
         gplayFrame.getContentPane().setBackground(Color.DARK_GRAY);
 
         // score label
@@ -71,7 +67,7 @@ public class GamePlay extends JFrame implements ActionListener {
         scoreLabel.setBackground(Color.WHITE);
         scoreLabel.setForeground(Color.BLACK);
         scoreLabel.setBounds(330, 5, 120, 50);
-        scoreLabel.setFont(scoreLabel.getFont().deriveFont(18.0f));
+        scoreLabel.setFont(scoreLabel.getFont().deriveFont(20.0f));
 
         gplayFrame.add(scoreLabel);
 
@@ -158,19 +154,19 @@ public class GamePlay extends JFrame implements ActionListener {
 
         //done, clear, menu
 
-        doneBtn.setBounds(100, 500, 100, 50);
+        doneBtn.setBounds(130, 500, 100, 50);
         doneBtn.setBackground(Color.WHITE);
         doneBtn.setFont(font);
         doneBtn.addActionListener(this);
         gplayFrame.add(doneBtn);
 
-        clearBtn.setBounds(200, 500, 100, 50);
+        clearBtn.setBounds(230, 500, 100, 50);
         clearBtn.setBackground(Color.WHITE);
         clearBtn.setFont(font);
         clearBtn.addActionListener(this);
         gplayFrame.add(clearBtn);
 
-        menuBtn.setBounds(300, 500, 100, 50);
+        menuBtn.setBounds(330, 500, 100, 50);
         menuBtn.setBackground(Color.WHITE);
         menuBtn.setFont(font);
         menuBtn.addActionListener(this);

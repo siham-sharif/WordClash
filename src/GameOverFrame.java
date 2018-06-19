@@ -10,7 +10,7 @@ import java.io.IOException;
 public class GameOverFrame extends JFrame implements ActionListener{
 
     private JFrame gameOverFrame;
-    private JButton gotoMenuBtn;
+    private GameButton gotoMenuBtn;
     private String gameStatusImage;
 
     public GameOverFrame(String gameResult, String score) throws IOException{
@@ -48,10 +48,10 @@ public class GameOverFrame extends JFrame implements ActionListener{
         gameOverFrame.add(gameScoreLbl);
 
 
-        gotoMenuBtn = new JButton("Go to Menu");
+        gotoMenuBtn = new GameButton("Go to Menu");
         gotoMenuBtn.setBounds(140,500,200,50);
-        gotoMenuBtn.setBackground(Color.WHITE);
-        gotoMenuBtn.setForeground(Color.BLACK);
+        //gotoMenuBtn.setBackground(Color.WHITE);
+        //gotoMenuBtn.setForeground(Color.BLACK);
         gotoMenuBtn.setFont(new Font("Arial", Font.BOLD,25));
         gotoMenuBtn.addActionListener(this);
         gameOverFrame.add(gotoMenuBtn);

@@ -6,20 +6,16 @@ import java.awt.event.ActionListener;
 public class Help extends JFrame{
 
 
-    public JFrame helpFrame = new JFrame("Help");
+    public GameFrame helpFrame = new GameFrame("Help");
     public Font font = new Font("Matura MT Script Capitals",Font.BOLD,25);
 
-    public JButton backBtn;
+    public GameButton backBtn;
     public JLabel creditWordsLabel;
     public JPanel creditsPanel;
 
     public Help(){
 
-        // basic skeleton of credit frame
-        helpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        helpFrame.setSize(500,600);
         helpFrame.setVisible(true);
-        helpFrame.setResizable(false);
 
         creditsPanel = new JPanel(new BorderLayout());
 
@@ -60,11 +56,8 @@ public class Help extends JFrame{
         helpFrame.add(creditsPanel);
 
         // adding back button
-        backBtn = new JButton("Back to Menu");
+        backBtn = new GameButton("Back to Menu");
         backBtn.setSize(200,100);
-        backBtn.setBackground(Color.DARK_GRAY);
-        backBtn.setForeground(Color.WHITE);
-        backBtn.setFont(font);
 
         // setting back button to bottom
         creditsPanel.add(backBtn, BorderLayout.SOUTH);

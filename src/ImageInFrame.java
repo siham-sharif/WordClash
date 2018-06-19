@@ -10,7 +10,7 @@ public class ImageInFrame extends JFrame{
 
     public Timer timer;
 
-    public JFrame jFrame = new JFrame("Word Clash");
+    public GameFrame jFrame = new GameFrame("Word Clash");
 
     public ImageInFrame() throws IOException{
 
@@ -23,11 +23,7 @@ public class ImageInFrame extends JFrame{
 
         JLabel splashLabel = new JLabel(new ImageIcon(splashImage));
 
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.getContentPane().add(splashLabel);
-
-
-        jFrame.setSize(500,600);
         jFrame.setVisible(true);
 
         splashTimer();

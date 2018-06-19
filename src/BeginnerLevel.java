@@ -8,8 +8,8 @@ public class BeginnerLevel implements ActionListener {
     public JFrame beginnerFrame = new JFrame("Beginner");
     public Font font = new Font("Matura MT Script Capitals", Font.BOLD, 20);
 
-    public JButton lvlOneBtn, lvlTwoBtn, lvlThreeBtn;
-    public JButton mainMenuBtn;
+    public GameButton lvlOneBtn, lvlTwoBtn, lvlThreeBtn;
+    public GameButton mainMenuBtn;
 
 
     public BeginnerLevel () {
@@ -25,31 +25,31 @@ public class BeginnerLevel implements ActionListener {
 
         // three level button
 
-        lvlOneBtn = new JButton("Level One");
+        lvlOneBtn = new GameButton("Level One");
         lvlOneBtn.setBounds(160, 100, 200, 50);
-        lvlOneBtn.setBackground(Color.WHITE);
-        lvlOneBtn.setFont(font);
+        //lvlOneBtn.setBackground(Color.WHITE);
+        //lvlOneBtn.setFont(font);
 
         beginnerFrame.add(lvlOneBtn);
 
-        lvlTwoBtn = new JButton("Level Two");
+        lvlTwoBtn = new GameButton("Level Two");
         lvlTwoBtn.setBounds(160, 160, 200, 50);
-        lvlTwoBtn.setBackground(Color.WHITE);
-        lvlTwoBtn.setFont(font);
+        //lvlTwoBtn.setBackground(Color.WHITE);
+        //lvlTwoBtn.setFont(font);
 
         beginnerFrame.add(lvlTwoBtn);
 
-        lvlThreeBtn = new JButton("Level Three");
+        lvlThreeBtn = new GameButton("Level Three");
         lvlThreeBtn.setBounds(160, 220, 200, 50);
-        lvlThreeBtn.setBackground(Color.WHITE);
-        lvlThreeBtn.setFont(font);
+        //lvlThreeBtn.setBackground(Color.WHITE);
+        //lvlThreeBtn.setFont(font);
 
         beginnerFrame.add(lvlThreeBtn);
 
-        mainMenuBtn = new JButton("Main Menu");
+        mainMenuBtn = new GameButton("Main Menu");
         mainMenuBtn.setBounds(160, 400, 200, 50);
-        mainMenuBtn.setBackground(Color.WHITE);
-        mainMenuBtn.setFont(font);
+        //mainMenuBtn.setBackground(Color.WHITE);
+        //mainMenuBtn.setFont(font);
 
 
         beginnerFrame.add(mainMenuBtn);

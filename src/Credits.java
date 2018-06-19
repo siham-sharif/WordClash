@@ -5,20 +5,20 @@ import java.awt.event.ActionListener;
 
 public class Credits extends JFrame {
 
-    public JFrame creditFrame = new JFrame("Credits");
+    public GameFrame creditFrame = new GameFrame("Credits");
     public Font font = new Font("Matura MT Script Capitals",Font.BOLD,25);
 
-    public JButton backBtn;
+    public GameButton backBtn;
     public JLabel creditWordsLabel;
     public JPanel creditsPanel;
 
     public Credits(){
 
         // basic skeleton of credit frame
-        creditFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        creditFrame.setSize(500,600);
+        //creditFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //creditFrame.setSize(500,600);
         creditFrame.setVisible(true);
-        creditFrame.setResizable(false);
+        //creditFrame.setResizable(false);
 
         creditsPanel = new JPanel(new BorderLayout());
 
@@ -39,10 +39,10 @@ public class Credits extends JFrame {
         creditFrame.add(creditsPanel);
 
         // adding back button
-        backBtn = new JButton("Back to Menu");
-        backBtn.setSize(200,100);
-        backBtn.setBackground(Color.DARK_GRAY);
-        backBtn.setForeground(Color.WHITE);
+        backBtn = new GameButton("Back to Menu");
+        //backBtn.setSize(200,100);
+        //backBtn.setBackground(Color.DARK_GRAY);
+        //backBtn.setForeground(Color.WHITE);
         backBtn.setFont(font);
 
         // setting back button to bottom

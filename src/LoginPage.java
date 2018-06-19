@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class LoginPage extends JFrame{
 
-    public JFrame loginFrame = new JFrame("User Login");
+    public GameFrame loginFrame = new GameFrame("User Login");
     public JLabel playerNameLabel;
     public static JTextField playerNameTextField;
     //public JButton submitButton;
@@ -14,34 +14,29 @@ public class LoginPage extends JFrame{
 
     public LoginPage(){
 
-        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.getContentPane().setBackground(Color.darkGray);
-        loginFrame.setSize(500,600);
         loginFrame.setVisible(true);
         loginFrame.setLayout(null);
 
-        Font font = new Font("Matura MT Script Capitals",Font.BOLD,20);
+        Font font = new Font("Matura MT Script Capitals",Font.BOLD,30);
 
         playerNameLabel = new JLabel("Player Name");
-        playerNameLabel.setBounds(100,150,200,100);
+        playerNameLabel.setBounds(170,170,200,100);
         playerNameLabel.setForeground(Color.LIGHT_GRAY);
         playerNameLabel.setFont(font);
 
         playerNameTextField = new JTextField(20);
-        playerNameTextField.setBounds(100,220,200,50);
-        playerNameTextField.setForeground(Color.LIGHT_GRAY);
+        playerNameTextField.setBounds(170,255,200,50);
+        playerNameTextField.setForeground(Color.BLACK);
         playerNameTextField.setFont(font);
 
         submitButton = new GameButton("Submit");
-        //submitButton.setBounds(125,340,150,50);
-        //submitButton.setBackground(Color.WHITE);
-        //submitButton.setForeground(Color.BLACK);
-        //submitButton.setFont(font);
+        submitButton.setBounds(170,360,200,50);
 
         // adding everything to Frame
         loginFrame.add(playerNameLabel);
         loginFrame.add(playerNameTextField);
-        loginFrame.add(submitButton);
+        loginFrame.add(submitButton, BorderLayout.CENTER);
 
         userVerification submitButtonClicked = new userVerification();
         submitButton.addActionListener(submitButtonClicked);
@@ -57,7 +52,6 @@ public class LoginPage extends JFrame{
             DbLayer dbObject = new DbLayer();
             dbObject.checkLogin(playerNameTextField.getText());
 
-            // set visibility off
             loginFrame.setVisible(false);
         }
     }
