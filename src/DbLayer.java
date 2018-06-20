@@ -37,6 +37,7 @@ public class DbLayer {
                     userExists = true;
                     if (userExists) {
                         System.out.println("User exists in Database");
+                        break;
                     }
                 }
                 else

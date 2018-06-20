@@ -1,5 +1,3 @@
-import sun.management.jdp.JdpGenericPacket;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -92,6 +90,9 @@ public class MenuFrame extends JFrame {
 
         // adding listeners to buttons
 
+        optionEvent optBtnClicked = new optionEvent();
+        optionBtn.addActionListener(optBtnClicked);
+
         exitEvent exitBtnClicked = new exitEvent();
         exitBtn.addActionListener(exitBtnClicked);
 
@@ -115,6 +116,16 @@ public class MenuFrame extends JFrame {
 
 
     }
+
+    //option event
+    public class optionEvent implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new Options();
+            menuFrame.setVisible(false);
+        }
+    }
+
 
     // exit event
     public class exitEvent implements ActionListener{

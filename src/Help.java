@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Help extends JFrame{
+public class Help{
 
 
     public GameFrame helpFrame = new GameFrame("Help");
@@ -73,6 +73,5 @@ public class Help extends JFrame{
             helpFrame.setVisible(false);
         }
     }
-
 
 }
