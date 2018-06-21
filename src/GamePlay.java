@@ -22,7 +22,6 @@ public class GamePlay extends JFrame implements ActionListener {
     public String score = "SCORE: ";
     public String textScore = "0";
 
-
     //frame
     static String str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
                             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };

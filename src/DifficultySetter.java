@@ -28,7 +28,7 @@ public class DifficultySetter {
                 break;
             case "easy.two":  buttonRow = 1; buttonClm = 4; gamePlayRound = 8;
                 break;
-            case "easy.three":  buttonRow = 2; buttonClm = 2; gamePlayRound = 10;
+            case "easy.three":  buttonRow = 2; buttonClm = 3; gamePlayRound = 10;
                 break;
             default: buttonRow = 2; buttonClm = 2;
                 break;

@@ -30,12 +30,13 @@ public class GameOverFrame extends JFrame implements ActionListener{
         String gameStatusPathDir = System.getProperty("user.dir");
         //System.out.println(splashPathDir);
         if(gameResult.matches("You Won!")) {
-            gameStatusImage = "src/youWon.jpg";
+            //gameStatusImage = "src/youWon.jpg";
+            gameStatusImage = "resource/images/youWon.jpg";
             soundClip.winingSound();
         }
         else
         {
-            gameStatusImage = "src/youLose.jpg";
+            gameStatusImage = "resource/images/youLose.jpg";
             soundClip.losingSound();
         }
 

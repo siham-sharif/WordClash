@@ -16,7 +16,7 @@ public class ImageInFrame extends JFrame{
 
         String splashPathDir = System.getProperty("user.dir");
         //System.out.println(splashPathDir);
-        String splashLocation = "src/splash.jpg";
+        String splashLocation = "resource/images/splash.jpg";
 
         File splashFile = new File(splashPathDir,splashLocation);
         BufferedImage splashImage = ImageIO.read(splashFile);

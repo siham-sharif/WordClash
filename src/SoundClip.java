@@ -41,6 +41,11 @@ public class SoundClip {
     }
 
     public void winingSound(){
+
+        if(activeClip != null) {
+            activeClip.stop();
+        }
+
         try{
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(winSound));
@@ -50,20 +55,21 @@ public class SoundClip {
         catch (Exception error){
             error.printStackTrace();
         }
-
     }
 
     public void losingSound(){
+
+        if(activeClip != null) {
+            activeClip.stop();
+        }
+
         try{
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(looseSound));
             clip.start();
-
         }
         catch (Exception error){
             error.printStackTrace();
         }
-
     }
-
 }
