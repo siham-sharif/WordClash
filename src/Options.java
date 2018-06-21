@@ -14,7 +14,11 @@ public class Options extends JFrame implements ActionListener{
 
     public JRadioButton soundON, soundOFF;
 
+    SoundClip soundClip = new SoundClip();
+
     public Options(){
+
+        ButtonGroup buttonGroup = new ButtonGroup();
 
         optionFrame.setVisible(true);
         optionPanel = new JPanel(new BorderLayout());
@@ -35,6 +39,9 @@ public class Options extends JFrame implements ActionListener{
         soundON.addActionListener(this);
         soundOFF.addActionListener(this);
 
+        buttonGroup.add(soundON);
+        buttonGroup.add(soundOFF);
+
         optionFrame.add(soundON);
         optionFrame.add(soundOFF);
 
@@ -54,12 +61,13 @@ public class Options extends JFrame implements ActionListener{
     public void actionPerformed (ActionEvent e) {
 
         if(soundON.isSelected()){
-            soundOFF.clearSe;
-            soundON.setSelected(true);
+            System.out.println("sound on is selected!");
+            soundClip.themeSongStatus(true);
+
         }
         if(soundOFF.isSelected()){
-            soundON.setSelected(false);
-           soundOFF.setSelected(true);
+            System.out.println("sound off is selected!");
+            soundClip.themeSongStatus(false);
         }
 
     }

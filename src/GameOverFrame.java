@@ -13,6 +13,9 @@ public class GameOverFrame extends JFrame implements ActionListener{
     private GameButton gotoMenuBtn;
     private String gameStatusImage;
 
+    SoundClip soundClip = new SoundClip();
+
+
     public GameOverFrame(String gameResult, String score) throws IOException{
 
         System.out.println("In Game Over Frame");
@@ -28,10 +31,12 @@ public class GameOverFrame extends JFrame implements ActionListener{
         //System.out.println(splashPathDir);
         if(gameResult.matches("You Won!")) {
             gameStatusImage = "src/youWon.jpg";
+            soundClip.winingSound();
         }
         else
         {
             gameStatusImage = "src/youLose.jpg";
+            soundClip.losingSound();
         }
 
         File gameResultFile = new File(gameStatusPathDir,gameStatusImage);
