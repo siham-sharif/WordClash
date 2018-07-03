@@ -111,9 +111,10 @@ public class MenuFrame extends JFrame {
         newGameBtn.addActionListener(newGameBtnClicked);
 
         //easy button event
-        beginnerLevel beginnerBtnClicked = new beginnerLevel();
-        beginnerBtn.addActionListener(beginnerBtnClicked);
-
+        beginnerLevel levelButtonClicked = new beginnerLevel();
+        beginnerBtn.addActionListener(levelButtonClicked);
+        mediumBtn.addActionListener(levelButtonClicked);
+        hardBtn.addActionListener(levelButtonClicked);
 
     }
 
@@ -187,11 +188,27 @@ public class MenuFrame extends JFrame {
 
     public class beginnerLevel implements ActionListener{
         @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("Beginner Button Clicked");
-            new BeginnerLevel();
-            gameStageFrame.setVisible(false);
-            menuFrame.setVisible(false);
+        public void actionPerformed(ActionEvent buttonClicked) {
+
+
+            if(buttonClicked.getSource() == beginnerBtn) {
+                System.out.println("Beginner Button Clicked");
+                new BeginnerLevel();
+                gameStageFrame.setVisible(false);
+                menuFrame.setVisible(false);
+            }
+            if(buttonClicked.getSource() == mediumBtn){
+                System.out.println("Medium button clicked!");
+                new MediumLevel();
+                gameStageFrame.setVisible(false);
+                menuFrame.setVisible(false);
+            }
+            if(buttonClicked.getSource() == hardBtn){
+                System.out.println("Hard button clicked!");
+                new HardLevel();
+                gameStageFrame.setVisible(false);
+                menuFrame.setVisible(false);
+            }
 
         }
     }

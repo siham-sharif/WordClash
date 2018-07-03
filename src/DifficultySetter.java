@@ -30,6 +30,18 @@ public class DifficultySetter {
                 break;
             case "easy.three":  buttonRow = 2; buttonClm = 3; gamePlayRound = 10;
                 break;
+            case "medium.one":  buttonRow = 2; buttonClm = 3; gamePlayRound = 3;
+                break;
+            case "medium.two":  buttonRow = 2; buttonClm = 4; gamePlayRound = 8;
+                break;
+            case "medium.three":  buttonRow = 3; buttonClm = 4; gamePlayRound = 10;
+                break;
+            case "hard.one":  buttonRow = 3; buttonClm = 4; gamePlayRound = 3;
+                break;
+            case "hard.two":  buttonRow = 4; buttonClm = 4; gamePlayRound = 8;
+                break;
+            case "hard.three":  buttonRow = 5; buttonClm = 4; gamePlayRound = 10;
+                break;
             default: buttonRow = 2; buttonClm = 2;
                 break;
         }
