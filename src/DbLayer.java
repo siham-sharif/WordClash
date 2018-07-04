@@ -19,6 +19,12 @@ public class DbLayer {
     //user name same across the game
     public static String currentUserName;
 
+    public String difficulty;
+
+    public String getDifficultyLevel(){
+        return this.difficulty;
+    }
+
     public void checkLogin(String inputFromUser){
 
         currentUserName=inputFromUser;
@@ -104,6 +110,7 @@ public class DbLayer {
 
     public ArrayList<String> wordFetcher(String difficulty, int limit){
 
+        this.difficulty = difficulty;
         int wordLength=0;
         String sign= "=" , dbName="word_easy";
 

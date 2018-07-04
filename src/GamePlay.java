@@ -35,23 +35,21 @@ public class GamePlay extends JFrame implements ActionListener {
     public ArrayList<String> wordList;
     public int gamePlayRound;
     public int numberScore;
+    public String difficulty;
 
     private String currentWord ="";
 
-    public JLabel buttonLabel;
-
-
-    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, int gamePlayRound, int playerPrevScore) {
+    public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, int gamePlayRound, int playerPrevScore, String difficulty) {
 
 
         System.out.println("Game Play Screen Activated");
-
 
         this.buttonRow=buttonRow;
         this.buttonClm=buttonClm;
         this.wordList=wordList;
         this.gamePlayRound=gamePlayRound;
         this.numberScore = playerPrevScore;
+        this.difficulty = difficulty;
 
         this.rowInPressBtn = buttonRow;
         this.clmInPressBtn = buttonClm;
@@ -84,7 +82,15 @@ public class GamePlay extends JFrame implements ActionListener {
 
         // button height width x-y-axis position
         Random random = new Random();
-        int width = 500;
+        int width = 550; // letter button moves with this
+
+        if(difficulty.contains("medium")){
+            width = 675;
+        }
+        if(difficulty.contains("hard")){
+            width = 800;
+        }
+
         int height = 600;
         int buttonWidth = buttonRow * 100;
         int buttonHeight = buttonRow * 50;
@@ -140,33 +146,32 @@ public class GamePlay extends JFrame implements ActionListener {
                 wordBtn[charPosition].setFont(font);
                 wordBtn[charPosition].setBackground(Color.WHITE);
                 wordBtn[charPosition].setBounds(tmp, y, 100, 50);
-
                 wordBtn[ charPosition ].addActionListener(this);
+
                 gplayFrame.add(wordBtn[ charPosition ]);
 
                 charPosition++;
                 tmp += 100;
 
             }
-
             y += 50;
         }
 
         //done, clear, menu
 
-        doneBtn.setBounds(130, 500, 100, 50);
+        doneBtn.setBounds(0, 600, 200, 75);
         doneBtn.setBackground(Color.WHITE);
         doneBtn.setFont(font);
         doneBtn.addActionListener(this);
         gplayFrame.add(doneBtn);
 
-        clearBtn.setBounds(230, 500, 100, 50);
+        clearBtn.setBounds(200, 600, 200, 75);
         clearBtn.setBackground(Color.WHITE);
         clearBtn.setFont(font);
         clearBtn.addActionListener(this);
         gplayFrame.add(clearBtn);
 
-        menuBtn.setBounds(330, 500, 100, 50);
+        menuBtn.setBounds(400, 600, 200, 75);
         menuBtn.setBackground(Color.WHITE);
         menuBtn.setFont(font);
         menuBtn.addActionListener(this);
@@ -180,6 +185,7 @@ public class GamePlay extends JFrame implements ActionListener {
 
                 DbLayer dbLayer = new DbLayer();
 
+
                 try{
                     // if matched logic
                     if (word.length() >= 2 && dbLayer.wordExist(word.toLowerCase())){
@@ -192,7 +198,7 @@ public class GamePlay extends JFrame implements ActionListener {
 
                             --gamePlayRound;
                             gplayFrame.setVisible(false);
-                            new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound, numberScore);
+                            new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound, numberScore, difficulty);
                         }
                         else {
                             gplayFrame.setVisible(false);
@@ -216,7 +222,7 @@ public class GamePlay extends JFrame implements ActionListener {
             }
             // clear button work
             if(actionTaken.getSource() == clearBtn){
-                word = "WORD: ";
+                word = "  WORD: ";
                 wordLabel.setText(word);
             }
             if(actionTaken.getSource() == menuBtn){

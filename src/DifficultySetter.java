@@ -55,8 +55,8 @@ public class DifficultySetter {
             System.out.println(itr.next());
         }
 
-        // setting button and column number, passing fetched words, how many rounds and initial score
-        new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound, 0);
+        // setting button and column number, passing fetched words, how many rounds and initial score and difficulty
+        new GamePlay(buttonRow, buttonClm, wordList, gamePlayRound, 0, difficulty);
 
         }
 }
