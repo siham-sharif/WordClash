@@ -36,16 +36,17 @@ public class DifficultySetter {
                 break;
             case "medium.three":  buttonRow = 3; buttonClm = 4; gamePlayRound = 10;
                 break;
-            case "hard.one":  buttonRow = 3; buttonClm = 4; gamePlayRound = 3;
+            case "hard.one":  buttonRow = 3; buttonClm = 4; gamePlayRound = 5;
                 break;
-            case "hard.two":  buttonRow = 4; buttonClm = 4; gamePlayRound = 8;
+            case "hard.two":  buttonRow = 3; buttonClm = 4; gamePlayRound = 8;
                 break;
-            case "hard.three":  buttonRow = 5; buttonClm = 4; gamePlayRound = 10;
+            case "hard.three":  buttonRow = 4; buttonClm = 4; gamePlayRound = 15;
                 break;
             default: buttonRow = 2; buttonClm = 2;
                 break;
         }
 
+        //sending difficulty level and how many round of game will be played
         wordList = dbLayer.wordFetcher(difficulty, gamePlayRound);
 
         System.out.println("Printing fetched words");

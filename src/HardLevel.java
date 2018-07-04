@@ -68,15 +68,15 @@ public class HardLevel implements ActionListener{
             hardFrame.setVisible(false);
         }
         if (actionTaken.getSource() == lvlOneBtn) {
-            new DifficultySetter("easy.one");
+            new DifficultySetter("hard.one");
             hardFrame.setVisible(false);
         }
         if (actionTaken.getSource() == lvlTwoBtn) {
-            new DifficultySetter("easy.two");
+            new DifficultySetter("hard.two");
             hardFrame.setVisible(false);
         }
         if (actionTaken.getSource() == lvlThreeBtn) {
-            new DifficultySetter("easy.three");
+            new DifficultySetter("hard.three");
             hardFrame.setVisible(false);
         }
 

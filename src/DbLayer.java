@@ -104,16 +104,30 @@ public class DbLayer {
 
     public ArrayList<String> wordFetcher(String difficulty, int limit){
 
-        int wordLength;
-        String sign= "=" ;
+        int wordLength=0;
+        String sign= "=" , dbName="word_easy";
+
         switch (difficulty) {
-            case "easy.one":  wordLength = 3; sign = "<=";
+            case "easy.one": dbName="word_easy"; wordLength = 3; sign = "<=";
                 break;
-            case "easy.two":  wordLength = 3; sign = "=";
+            case "easy.two": dbName="word_easy"; wordLength = 3; sign = "=";
                 break;
-            case "easy.three":  wordLength = 4; sign = ">=";
+            case "easy.three": dbName="word_easy"; wordLength = 4; sign = ">=";
                 break;
-            default: wordLength = 3;
+            case "medium.one": dbName="word_medium"; wordLength = 4; sign = "=";
+                break;
+            case "medium.two": dbName="word_medium"; wordLength = 6; sign = "<=";
+                break;
+            case "medium.three": dbName="word_medium"; wordLength = 5; sign = ">=";
+                break;
+            case "hard.one": dbName="word_hard"; wordLength = 4; sign = "=";
+                break;
+            case "hard.two": dbName="word_hard"; wordLength = 6; sign = "<=";
+                break;
+            case "hard.three": dbName="word_hard"; wordLength = 6; sign = ">";
+                break;
+            default:
+                System.out.printf("DB layer : difficulty level %s", difficulty);
                 break;
         }
 
@@ -126,7 +140,9 @@ public class DbLayer {
 
             statement = connection.createStatement();
             //resultSet = statement.executeQuery("SELECT word FROM word_easy ORDER BY RAND() LIMIT 5");
-            resultSet = statement.executeQuery("SELECT word FROM word_easy WHERE LENGTH( word ) "+ sign + " " + wordLength + " ORDER BY RAND( ) LIMIT " + limit);
+            resultSet = statement.executeQuery("SELECT word FROM "+ dbName +
+                                                    " WHERE LENGTH( word ) "+ sign + " " + wordLength +
+                                                    " ORDER BY RAND( ) LIMIT " + limit);
 
             while(resultSet.next()){
                 wordArrayList.add(resultSet.getString("word"));

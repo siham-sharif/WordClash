@@ -27,7 +27,6 @@ public class GamePlay extends JFrame implements ActionListener {
                             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
     public static int rowInPressBtn, clmInPressBtn;
 
-
     String letter[] = new String[ 100 ];
     JButton wordBtn[] = new JButton[ 100 ];
 
@@ -38,6 +37,8 @@ public class GamePlay extends JFrame implements ActionListener {
     public int numberScore;
 
     private String currentWord ="";
+
+    public JLabel buttonLabel;
 
 
     public GamePlay(int buttonRow, int buttonClm, ArrayList<String> wordList, int gamePlayRound, int playerPrevScore) {
