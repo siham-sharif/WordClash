@@ -92,7 +92,7 @@ public class GameFrame extends JFrame implements ActionListener {
             new Options();
         }
         if(actionTaken.getSource() == closeGame){
-            //System.out.println("Clicked on menu in JMenuBar");
+            //System.out.println("Clicked on Close Button in JMenuBar");
             System.exit(0);
         }
 
