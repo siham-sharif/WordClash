@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class BeginnerLevel implements ActionListener {
 
-    public JFrame beginnerFrame = new JFrame("Beginner");
+    public GameFrame beginnerFrame = new GameFrame("Beginner");
     public Font font = new Font("Matura MT Script Capitals", Font.BOLD, 20);
 
     public GameButton lvlOneBtn, lvlTwoBtn, lvlThreeBtn;
@@ -15,10 +15,7 @@ public class BeginnerLevel implements ActionListener {
     public BeginnerLevel () {
 
         //basic frame skeleton
-        beginnerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        beginnerFrame.setResizable(false);
         beginnerFrame.setVisible(true);
-        beginnerFrame.setBounds(100, 200, 500, 600);
         beginnerFrame.setLayout(null);
 
         beginnerFrame.getContentPane().setBackground(Color.DARK_GRAY);
@@ -26,32 +23,20 @@ public class BeginnerLevel implements ActionListener {
         // three level button
 
         lvlOneBtn = new GameButton("Level One");
-        lvlOneBtn.setBounds(160, 100, 200, 50);
-        //lvlOneBtn.setBackground(Color.WHITE);
-        //lvlOneBtn.setFont(font);
+        lvlOneBtn.setBounds(180, 160, 200, 50);
 
         beginnerFrame.add(lvlOneBtn);
 
         lvlTwoBtn = new GameButton("Level Two");
-        lvlTwoBtn.setBounds(160, 160, 200, 50);
-        //lvlTwoBtn.setBackground(Color.WHITE);
-        //lvlTwoBtn.setFont(font);
-
+        lvlTwoBtn.setBounds(180, 220, 200, 50);
         beginnerFrame.add(lvlTwoBtn);
 
         lvlThreeBtn = new GameButton("Level Three");
-        lvlThreeBtn.setBounds(160, 220, 200, 50);
-        //lvlThreeBtn.setBackground(Color.WHITE);
-        //lvlThreeBtn.setFont(font);
-
+        lvlThreeBtn.setBounds(180, 280, 200, 50);
         beginnerFrame.add(lvlThreeBtn);
 
         mainMenuBtn = new GameButton("Main Menu");
-        mainMenuBtn.setBounds(160, 400, 200, 50);
-        //mainMenuBtn.setBackground(Color.WHITE);
-        //mainMenuBtn.setFont(font);
-
-
+        mainMenuBtn.setBounds(180, 400, 200, 50);
         beginnerFrame.add(mainMenuBtn);
 
         lvlOneBtn.addActionListener(this);

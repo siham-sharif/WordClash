@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class HardLevel implements ActionListener{
 
-    public JFrame hardFrame = new JFrame("Hard");
+    public GameFrame hardFrame = new GameFrame("Hard");
     public Font font = new Font("Matura MT Script Capitals", Font.BOLD, 20);
 
     public GameButton lvlOneBtn, lvlTwoBtn, lvlThreeBtn;
@@ -13,10 +13,7 @@ public class HardLevel implements ActionListener{
 
     public HardLevel(){
 
-        hardFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        hardFrame.setResizable(false);
         hardFrame.setVisible(true);
-        hardFrame.setBounds(100, 200, 500, 600);
         hardFrame.setLayout(null);
 
         hardFrame.getContentPane().setBackground(Color.DARK_GRAY);
@@ -24,31 +21,23 @@ public class HardLevel implements ActionListener{
         // three level button
 
         lvlOneBtn = new GameButton("Level One");
-        lvlOneBtn.setBounds(160, 100, 200, 50);
-        //lvlOneBtn.setBackground(Color.WHITE);
-        //lvlOneBtn.setFont(font);
+        lvlOneBtn.setBounds(180, 160, 200, 50);
 
         hardFrame.add(lvlOneBtn);
 
         lvlTwoBtn = new GameButton("Level Two");
-        lvlTwoBtn.setBounds(160, 160, 200, 50);
-        //lvlTwoBtn.setBackground(Color.WHITE);
-        //lvlTwoBtn.setFont(font);
+        lvlTwoBtn.setBounds(180, 220, 200, 50);
 
         hardFrame.add(lvlTwoBtn);
 
         lvlThreeBtn = new GameButton("Level Three");
-        lvlThreeBtn.setBounds(160, 220, 200, 50);
-        //lvlThreeBtn.setBackground(Color.WHITE);
-        //lvlThreeBtn.setFont(font);
+        lvlThreeBtn.setBounds(180, 280, 200, 50);
+
 
         hardFrame.add(lvlThreeBtn);
 
         mainMenuBtn = new GameButton("Main Menu");
-        mainMenuBtn.setBounds(160, 400, 200, 50);
-        //mainMenuBtn.setBackground(Color.WHITE);
-        //mainMenuBtn.setFont(font);
-
+        mainMenuBtn.setBounds(180, 400, 200, 50);
 
         hardFrame.add(mainMenuBtn);
 
@@ -56,8 +45,6 @@ public class HardLevel implements ActionListener{
         lvlTwoBtn.addActionListener(this);
         lvlThreeBtn.addActionListener(this);
         mainMenuBtn.addActionListener(this);
-
-
 
     }
 

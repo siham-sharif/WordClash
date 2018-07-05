@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class LoginPage extends JFrame{
 
-    public GameFrame loginFrame = new GameFrame("User Login");
+    public JFrame loginFrame = new JFrame("User Login");
     public JLabel playerNameLabel;
     public static JTextField playerNameTextField;
     //public JButton submitButton;
@@ -14,6 +14,9 @@ public class LoginPage extends JFrame{
 
     public LoginPage(){
 
+        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginFrame.setSize(600,700);
+        loginFrame.setResizable(false);
         loginFrame.getContentPane().setBackground(Color.darkGray);
         loginFrame.setVisible(true);
         loginFrame.setLayout(null);

@@ -10,10 +10,10 @@ public class MenuFrame extends JFrame {
 
     public GameButton newGameBtn, rankListBtn, optionBtn, helpBtn, creditBtn, exitBtn;
 
-    public JButton beginnerBtn, easyBtn, mediumBtn, hardBtn, profBtn;
+    public JButton beginnerBtn, mediumBtn, hardBtn;
     public JButton backBtn;
 
-    public JFrame gameStageFrame = new JFrame("Game Stages");
+    public GameFrame gameStageFrame = new GameFrame("Game Stages");
 
 
     public MenuFrame(){
@@ -33,34 +33,20 @@ public class MenuFrame extends JFrame {
         // Buttons under new game sections
         // beginner button
         beginnerBtn = new GameButton("Beginner");
-        beginnerBtn.setBounds(160,160,200,50);
-        //beginnerBtn.setBackground(Color.WHITE);
-        //beginnerBtn.setFont(font);
-
-        // easy button
-        //easyBtn = new JButton("Easy");
-        //easyBtn.setBounds(160,160,200,50);
-        //easyBtn.setBackground(Color.WHITE);
-        //easyBtn.setFont(font);
+        beginnerBtn.setBounds(180,160,200,50);
 
         // medium button
         mediumBtn = new GameButton("Medium");
-        mediumBtn.setBounds(160,220,200,50);
-        //mediumBtn.setBackground(Color.WHITE);
-        //mediumBtn.setFont(font);
+        mediumBtn.setBounds(180,220,200,50);
 
         // hard button
         hardBtn = new GameButton("Hard");
-        hardBtn.setBounds(160,280,200,50);
-        //hardBtn.setBackground(Color.WHITE);
-        //hardBtn.setFont(font);
-
+        hardBtn.setBounds(180,280,200,50);
 
         // back button
-        backBtn = new GameButton("Back");
-        backBtn.setBounds(160,400,200,50);
-        //backBtn.setBackground(Color.WHITE);
-        //backBtn.setFont(font);
+        backBtn = new GameButton("Back To Menu");
+        backBtn.setBounds(180,400,200,50);
+
 
         // Rank List Button
         rankListBtn = new GameButton("Rank List");
@@ -115,6 +101,7 @@ public class MenuFrame extends JFrame {
         beginnerBtn.addActionListener(levelButtonClicked);
         mediumBtn.addActionListener(levelButtonClicked);
         hardBtn.addActionListener(levelButtonClicked);
+        backBtn.addActionListener(levelButtonClicked);
 
     }
 
@@ -164,24 +151,25 @@ public class MenuFrame extends JFrame {
         }
     }
 
+    // game stages frame
     public class newGameStarter implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
 
             menuFrame.setVisible(false);
             // game stage frame basic skeleton
-            gameStageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            gameStageFrame.getContentPane().setBackground(Color.DARK_GRAY);
-            gameStageFrame.setResizable(false);
-            gameStageFrame.setLayout(null);
-            gameStageFrame.setBounds(100,100,500,600);
-            gameStageFrame.setVisible(true);
 
+            gameStageFrame.getContentPane().setBackground(Color.DARK_GRAY);
+
+            gameStageFrame.setLayout(null);
+            //gameStageFrame.setBounds(100,100,500,600);
+            gameStageFrame.setVisible(true);
 
             // adding level button
             gameStageFrame.add(beginnerBtn);
             gameStageFrame.add(mediumBtn);
             gameStageFrame.add(hardBtn);
+            gameStageFrame.add(backBtn);
 
         }
     }
@@ -206,6 +194,12 @@ public class MenuFrame extends JFrame {
             if(buttonClicked.getSource() == hardBtn){
                 System.out.println("Hard button clicked!");
                 new HardLevel();
+                gameStageFrame.setVisible(false);
+                menuFrame.setVisible(false);
+            }
+            if(buttonClicked.getSource() == backBtn){
+                System.out.println("back button clicked!");
+                new MenuFrame();
                 gameStageFrame.setVisible(false);
                 menuFrame.setVisible(false);
             }

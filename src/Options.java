@@ -23,7 +23,6 @@ public class Options extends JFrame implements ActionListener{
         optionFrame.setVisible(true);
         optionPanel = new JPanel(new BorderLayout());
 
-
         soundLabel.setFont(new Font("Serif", Font.BOLD, 20));
         soundLabel.setBounds(30, 20, 120, 50);
         //optionPanel.add(soundLabel);

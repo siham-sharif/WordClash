@@ -10,9 +10,13 @@ public class ImageInFrame extends JFrame{
 
     public Timer timer;
 
-    public GameFrame jFrame = new GameFrame("Word Clash");
+    public JFrame jFrame = new JFrame("Word Clash");
 
     public ImageInFrame() throws IOException{
+
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setSize(600,700);
+        jFrame.setResizable(false);
 
         String splashPathDir = System.getProperty("user.dir");
         //System.out.println(splashPathDir);
