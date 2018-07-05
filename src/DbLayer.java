@@ -90,8 +90,6 @@ public class DbLayer {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM user ORDER BY score DESC");
 
-
-
             while (resultSet.next()){
                 users = new Users(
                         resultSet.getString("user_name"),

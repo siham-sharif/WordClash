@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Logger;
 
 public class RankList extends JFrame {
@@ -23,11 +24,7 @@ public class RankList extends JFrame {
 
         System.out.println("RankList Page hit!");
 
-        // basic skeleton of credit frame
-        //ranklistFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //ranklistFrame.setSize(500,600);
         ranklistFrame.setVisible(true);
-        //ranklistFrame.setResizable(false);
 
         // working with JTable
         ArrayList<Users> usersArrayList = new ArrayList<Users>();
@@ -59,16 +56,11 @@ public class RankList extends JFrame {
         rankTable.setFillsViewportHeight(true);
         panel.add(scrollPane, BorderLayout.CENTER);
         panel.setVisible(true);
-        //panel.setBackground(Color.WHITE);
 
         ranklistFrame.setContentPane(panel);
 
         // adding back button
         backBtn = new GameButton("Back to Menu");
-        //backBtn.setSize(200,100);
-        //backBtn.setBackground(Color.DARK_GRAY);
-        //backBtn.setForeground(Color.WHITE);
-        //backBtn.setFont(font);
 
         // setting back button to bottom
         panel.add(backBtn, BorderLayout.SOUTH);
