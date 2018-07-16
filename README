@@ -1,0 +1,18 @@
+WordClash is a word matching game for all age.
+In this game we tried add as many Swing component as possible.
+
+How to set PC for game
+
+Database Side
+1. Install phpmyadmin
+2. Create a Database named : wordclash_db
+3. Create table(column) : user(user_name, score), word_easy(word), word_medium(word),word_hard(word), word_tb(word)
+4. Import data from csv files located in project structure --> resource/kidsWords
+5. Import csv files according to their naming convension to the repected table
+
+IDE Side
+1. Clone the project to local pc
+2. Import the project in IDE
+3. Add mysql library from project structure for database connection.
+4. Run the Main file
+5. Enjoy
