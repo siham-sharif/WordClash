@@ -6,10 +6,10 @@ import java.util.Collection;
 
 public class DbLayer {
 
-    public String url = "jdbc:mysql://localhost:3306/wordclash_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
-    //public String url = "jdbc:mysql://localhost:3306/wordclash_db";
+    //public String url = "jdbc:mysql://localhost:3306/wordclash_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+    public String url = "jdbc:mysql://localhost:3306/wordclash_db";
     public String user = "root";
-    public String pass = "therap"; // therap123 in home pc
+    public String pass = ""; // therap123 in home pc
     public Connection connection;
 
     public Statement statement;

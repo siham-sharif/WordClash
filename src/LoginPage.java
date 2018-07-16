@@ -24,7 +24,7 @@ public class LoginPage extends JFrame{
         Font font = new Font("Matura MT Script Capitals",Font.BOLD,30);
 
         playerNameLabel = new JLabel("Player Name");
-        playerNameLabel.setBounds(170,170,200,100);
+        playerNameLabel.setBounds(170,170,250,100);
         playerNameLabel.setForeground(Color.LIGHT_GRAY);
         playerNameLabel.setFont(font);
 

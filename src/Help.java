@@ -7,7 +7,7 @@ public class Help{
 
 
     public GameFrame helpFrame = new GameFrame("Help");
-    public Font font = new Font("Matura MT Script Capitals",Font.BOLD,25);
+    public Font font = new Font("Serif",Font.BOLD,100);
 
     public GameButton backBtn;
     public JLabel creditWordsLabel;

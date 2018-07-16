@@ -24,7 +24,7 @@ public class Options extends JFrame implements ActionListener{
         optionPanel = new JPanel(new BorderLayout());
 
         soundLabel.setFont(new Font("Serif", Font.BOLD, 20));
-        soundLabel.setBounds(30, 20, 120, 50);
+        soundLabel.setBounds(50, 50, 120, 50);
         //optionPanel.add(soundLabel);
         optionFrame.add(soundLabel);
 
@@ -32,8 +32,8 @@ public class Options extends JFrame implements ActionListener{
         soundON = new JRadioButton("On");
         soundOFF = new JRadioButton("Off");
 
-        soundON.setBounds(30, 70, 100, 30);
-        soundOFF.setBounds(30, 120, 100, 30);
+        soundON.setBounds(50, 105, 100, 30);
+        soundOFF.setBounds(50, 140, 100, 30);
 
         soundON.addActionListener(this);
         soundOFF.addActionListener(this);
@@ -54,6 +54,7 @@ public class Options extends JFrame implements ActionListener{
 
         backToMenu backBtnClicked = new backToMenu();
         backBtn.addActionListener(backBtnClicked);
+        optionFrame.setVisible(true);
     }
 
     @Override
